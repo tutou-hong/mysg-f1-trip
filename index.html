@@ -1,0 +1,1902 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f2a3d">
+<meta name="format-detection" content="telephone=no,email=no,address=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<title>马来西亚 · 新加坡 F1 行程攻略（10.3–10.11）</title>
+<style>
+  :root{
+    --bg:#f6f2ec;
+    --card:#ffffff;
+    --ink:#1c2b33;
+    --muted:#6b7a84;
+    --line:#e8e1d6;
+    --brand:#0f6f8f;
+    --gold:#c8a24a;
+    /* city accents */
+    --penang:#0e7c66;   /* teal */
+    --langkawi:#1a7bb5; /* ocean */
+    --kl:#c0392b;       /* crimson */
+    --sg:#e07b12;       /* warm orange */
+    --f1:#b3202e;       /* F1 red */
+    --durian:#8f6d0f;   /* durian gold */
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html{scroll-behavior:smooth;scroll-padding-top:82px;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  html{scroll-padding-top:calc(82px + env(safe-area-inset-top))}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+    font-size:16px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:0 16px}
+  /* 横屏时灵动岛在左侧，给内容让出安全区 */
+  body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;color:#fff;overflow:hidden;
+    padding:34px 16px 30px;
+    padding-top:34px;padding-top:calc(22px + env(safe-area-inset-top));
+    background:
+      radial-gradient(120% 140% at 90% -20%,rgba(255,180,80,.28),transparent 55%),
+      radial-gradient(90% 100% at 10% 120%,rgba(26,123,181,.25),transparent 60%),
+      linear-gradient(150deg,#0b2233 0%,#134a63 55%,#0f6f8f 100%);
+  }
+  .hero-in{position:relative;z-index:1}
+  .hero .kicker{
+    display:inline-flex;align-items:center;gap:6px;
+    background:rgba(255,255,255,.14);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);
+    border:1px solid rgba(255,255,255,.22);
+    padding:5px 12px;border-radius:100px;font-size:13px;letter-spacing:.5px;
+    margin-bottom:14px;
+  }
+  .hero h1{margin:0 0 6px;font-size:30px;line-height:1.2;letter-spacing:-.5px}
+  .hero .sub{opacity:.9;font-size:15px}
+  .hero .dates{
+    display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;
+  }
+  .hero .dates .d{
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);
+    padding:8px 14px;border-radius:12px;font-size:14px;
+  }
+  .hero .dates .d b{display:block;font-size:15px}
+  .hero .dates .d span{opacity:.85;font-size:12px}
+  .flags{margin-top:16px;display:flex;gap:8px;flex-wrap:wrap}
+  .flags span{font-size:12px;background:rgba(255,255,255,.14);padding:4px 10px;border-radius:8px}
+
+  /* map toggle */
+  .maptoggle{
+    margin-top:16px;display:inline-flex;background:rgba(0,0,0,.22);
+    border-radius:100px;padding:3px;border:1px solid rgba(255,255,255,.18);
+  }
+  .maptoggle button{
+    border:0;background:transparent;color:#fff;opacity:.75;
+    font-size:13px;padding:6px 14px;border-radius:100px;cursor:pointer;
+  }
+  .maptoggle button.on{background:#fff;color:#134a63;opacity:1;font-weight:600}
+
+  /* ---------- STICKY NAV ---------- */
+  .nav{
+    position:sticky;top:0;z-index:30;background:rgba(246,242,236,.97);
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+  }
+  .nav .wrap{display:flex;gap:8px;overflow-x:auto;padding:9px 16px;
+    /* 灵动岛 / 状态栏：第二行覆盖第一行，老 WebView 不支持 env() 时自动退回 */
+    padding-top:9px;padding-top:calc(9px + env(safe-area-inset-top));
+    -webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .nav .wrap::-webkit-scrollbar{display:none}
+  .nav:after{content:"";position:absolute;right:0;top:0;bottom:0;width:26px;pointer-events:none;
+    background:linear-gradient(90deg,rgba(246,242,236,0),rgba(246,242,236,.97))}
+  .nav a{
+    flex:0 0 auto;padding:10px 18px;border-radius:100px;font-size:15px;line-height:1.25;
+    color:var(--muted);font-weight:600;white-space:nowrap;border:1px solid transparent;
+    transition:all .18s;-webkit-tap-highlight-color:transparent;
+  }
+  .nav a.active{background:var(--brand);color:#fff;box-shadow:0 3px 10px rgba(15,111,143,.25)}
+  .nav a.penang.active{background:var(--penang)}
+  .nav a.langkawi.active{background:var(--langkawi)}
+  .nav a.kl.active{background:var(--kl)}
+  .nav a.sg.active{background:var(--sg)}
+  .nav a.f1.active{background:var(--f1)}
+  .nav a.durian.active{background:var(--durian)}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:30px 0 8px}
+  .cityhd{
+    display:flex;align-items:center;gap:12px;margin-bottom:6px;
+  }
+  .cityhd .flag{font-size:26px}
+  .cityhd h2{margin:0;font-size:23px;letter-spacing:-.3px}
+  .cityhd .meta{color:var(--muted);font-size:13px;margin-top:2px}
+
+  .lede{color:var(--muted);font-size:14px;margin:4px 0 18px}
+
+  /* ---------- 二级目录 ---------- */
+  .subnav{display:flex;gap:7px;overflow-x:auto;margin:12px 0 4px;
+    -webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .subnav::-webkit-scrollbar{display:none}
+  .subnav a{flex:0 0 auto;font-size:13.5px;font-weight:600;padding:8px 15px;border-radius:100px;
+    background:#fff;border:1px solid var(--line);color:var(--muted);white-space:nowrap;
+    -webkit-tap-highlight-color:transparent}
+  .subnav a:active{background:#eef1ec}
+  .subnav a.penang{color:var(--penang);border-color:#cfe3dd}
+  .subnav a.langkawi{color:var(--langkawi);border-color:#cfe0ef}
+  .subnav a.kl{color:var(--kl);border-color:#eed3cf}
+  .subnav a.sg{color:var(--sg);border-color:#f2ddc2}
+  .subnav a.durian{color:var(--durian);border-color:#e4dcc0}
+  .subnav a.f1{color:var(--f1);border-color:#eed3d6}
+
+  /* ---------- 链路图（从酒店出发 · 时间 + 方式） ---------- */
+  .route{list-style:none;margin:8px 0 6px;padding:0}
+  .route li{position:relative;display:flex;align-items:center;gap:0;
+    padding:6px 0 6px 22px;font-size:14.5px;line-height:1.45}
+  .route li:before{content:"";position:absolute;left:5px;top:0;bottom:0;width:2px;background:#e3ddd2}
+  .route li:first-child:before{top:50%}
+  .route li:last-child:before{bottom:50%}
+  .route li:after{content:"";position:absolute;left:0;top:50%;margin-top:-6px;
+    width:12px;height:12px;border-radius:50%;background:#fff;border:2px solid #d5cec2;box-sizing:border-box}
+  .route li.start:after{border-color:var(--brand);background:var(--brand)}
+  .route li.start{font-weight:700;font-size:15px}
+  .route .mv{flex:0 0 68px;font-size:12.5px;font-weight:700;color:var(--muted);letter-spacing:.2px}
+  .route .tn{flex:1;min-width:0}
+  .route .mv.walk{color:#3f8f6e}
+  .route .mv.car{color:#c0392b}
+  .route .tn .place{font-weight:600;border-bottom:0}
+  .route .tn .place .pin{display:none}
+  .route .tn .lt2{color:var(--muted);font-size:12.5px;font-weight:400;margin-left:6px}
+
+  /* ---------- 每天的地图（可展开） ---------- */
+  .dmap{margin:10px 0 2px;border-radius:12px;border:1px dashed var(--line);background:#fbfaf7}
+  .dmap .hd{padding:11px 14px;cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}
+  .dmap .hd .t{font-size:14px;font-weight:600;color:var(--brand)}
+  .dmap .hd .chev{float:right;color:var(--muted);font-size:12px;line-height:1.6;transition:transform .18s}
+  .dmap.open .hd .chev{transform:rotate(180deg)}
+  .dmap .bd{display:none;padding:0 14px 12px}
+  .dmap.open .bd{display:block}
+  .dmap ul li a{color:var(--brand);text-decoration:none}
+  .dmap ul li a:active{opacity:.6}
+  .dmap .allmap{display:block;text-align:center;font-size:14px;font-weight:700;color:#fff;
+    background:var(--brand);padding:11px;border-radius:10px;margin:2px 0 10px}
+  .dmap .allmap:active{opacity:.85}
+  .dmap ul{list-style:none;margin:0;padding:0}
+  .dmap ul li{padding:6px 0;font-size:14px;border-bottom:1px dashed var(--line)}
+  .dmap ul li:last-child{border-bottom:0}
+  .dmap .ord{display:inline-block;width:19px;height:19px;line-height:19px;text-align:center;
+    border-radius:50%;background:#e6ebee;color:var(--muted);font-size:11px;font-weight:700;margin-right:7px}
+
+  /* ---------- 住宿卡 ---------- */
+  .stay{display:flex;gap:11px;align-items:flex-start;padding:13px 0;border-bottom:1px dashed var(--line)}
+  .stay:last-child{border-bottom:0}
+  .stay .em{font-size:20px;flex:0 0 auto;line-height:1.3}
+  .stay .nm{font-weight:700;font-size:15.5px}
+  .stay .ad{color:var(--muted);font-size:13px;margin-top:2px;line-height:1.5}
+  .stay .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+  .stay .tags span{font-size:12px;background:#eef1ec;color:var(--muted);padding:3px 9px;border-radius:6px}
+
+  /* ---------- 注意事项条目 ---------- */
+  .kv{padding:9px 0;font-size:14.5px;line-height:1.6;border-bottom:1px dashed var(--line)}
+  .kv:last-child{border-bottom:0;padding-bottom:0}
+  .kv b:first-child{display:inline-block;min-width:70px;color:var(--brand)}
+
+  /* cards */
+  .card{background:var(--card);border-radius:16px;border:1px solid var(--line);
+    box-shadow:0 2px 10px rgba(28,43,51,.04);overflow:hidden;margin-bottom:16px}
+  .card.penang{border-top:3px solid var(--penang)}
+  .card.langkawi{border-top:3px solid var(--langkawi)}
+  .card.kl{border-top:3px solid var(--kl)}
+  .card.sg{border-top:3px solid var(--sg)}
+  .card.f1{border-top:3px solid var(--f1);background:linear-gradient(180deg,#fff, #fbf3f3) }
+  .card.durian{border-top:3px solid var(--durian)}
+
+  .card .hd{padding:14px 16px;display:flex;align-items:center;gap:10px;cursor:pointer}
+  .card .hd .tag{
+    font-size:12px;font-weight:700;color:#fff;padding:3px 9px;border-radius:6px;flex:0 0 auto;letter-spacing:.3px
+  }
+  .card .hd .t{font-weight:700;font-size:16px}
+  .card .hd .s{color:var(--muted);font-size:13px;font-weight:500}
+  .card .hd .chev{margin-left:auto;flex:0 0 auto;width:22px;height:22px;transition:transform .2s;color:var(--muted)}
+  .card.open .hd .chev{transform:rotate(180deg)}
+  .card .bd{display:none;padding:2px 16px 18px}
+  .card.open .bd{display:block}
+
+  /* timeline rows */
+  .row{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px dashed var(--line)}
+  .row:last-child{border-bottom:0}
+  .row .tm{flex:0 0 66px;font-size:13px;font-weight:700;color:var(--brand);padding-top:2px}
+  .card.penang .row .tm{color:var(--penang)}
+  .card.langkawi .row .tm{color:var(--langkawi)}
+  .card.kl .row .tm{color:var(--kl)}
+  .card.sg .row .tm{color:var(--sg)}
+  .card.f1 .row .tm{color:var(--f1)}
+  .card.durian .row .tm{color:var(--durian)}
+  .row .body{flex:1}
+  .row .body .tagline{font-weight:600;font-size:15px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+  .row .body .desc{color:var(--muted);font-size:14px;margin-top:2px}
+  .row .body .desc ul{margin:6px 0 0;padding-left:17px}
+  .row .body .desc li{margin:4px 0}
+  .row .body .desc ul li::marker{color:#b9c3c9}
+
+  /* place link (map) */
+  .place{
+    display:inline-block;color:#134a63;font-weight:600;
+    border-bottom:1px solid currentColor;border-bottom-style:dotted;
+    cursor:pointer;line-height:1.4
+  }
+  .place .pin{font-style:normal;font-size:12px;margin-left:2px;opacity:.8}
+  .place:active{opacity:.6}
+  .card.penang .place{color:var(--penang)}
+  .card.langkawi .place{color:var(--langkawi)}
+  .card.kl .place{color:var(--kl)}
+  .card.sg .place{color:var(--sg)}
+  .card.durian .place{color:var(--durian)}
+  .addr{display:inline-block;color:#5a6a74;font-size:12.5px;font-weight:400;margin-left:8px;opacity:.9;line-height:1.5}
+  .addr b{color:#8a98a0;font-weight:600}
+
+  /* info boxes */
+  .note{
+    background:#f5f7f4;border:1px solid #e3e9e2;border-left:4px solid var(--brand);
+    border-radius:10px;padding:12px 14px;font-size:14px;margin:12px 0
+  }
+  .note.warn{background:#fdf6ec;border-color:#f2e2c6;border-left-color:var(--gold)}
+  .note.tip{background:#f2f8fa;border-color:#dcebf1;border-left-color:var(--langkawi)}
+  .note.red{background:#fdf2f3;border-color:#f3d9dc;border-left-color:var(--f1)}
+  .note b{display:inline-block;padding:2px 8px;border-radius:6px;font-size:12px;color:#fff;margin-right:6px}
+  .note.warn b{background:var(--gold)}
+  .note.tip b{background:var(--langkawi)}
+  .note.red b{background:var(--f1)}
+  .note .nh{font-weight:700}
+
+  /* pill chips */
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin:4px 0 14px}
+  .chips .ch{
+    font-size:13px;padding:7px 12px;border-radius:100px;background:#eef1ec;
+    border:1px solid var(--line);color:var(--muted)
+  }
+  .chips .ch .pin-star{color:var(--gold)}
+
+  /* food highlight blocks */
+  .meal{padding:14px 16px}
+  .meal .mt{display:flex;align-items:center;gap:8px;font-weight:700;font-size:16px;margin-bottom:8px}
+  .meal .mt .em{font-size:20px}
+  .meal .mt .lb{font-size:12px;color:#fff;padding:2px 8px;border-radius:6px}
+  .meal .picks{margin:8px 0 0;padding-left:0;list-style:none}
+  .meal .picks li{position:relative;padding:3px 0 3px 22px;font-size:14.5px}
+  .meal .picks li:before{content:"✔";position:absolute;left:0;color:var(--brand);font-size:13px}
+  .card.penang .meal .picks li:before{color:var(--penang)}
+  .card.langkawi .meal .picks li:before{color:var(--langkawi)}
+  .card.kl .meal .picks li:before{color:var(--kl)}
+  .card.sg .meal .picks li:before{color:var(--sg)}
+  .meal .price{font-size:12.5px;color:var(--muted);margin-top:8px}
+
+  .sub-t{font-size:15px;font-weight:700;margin:18px 0 8px;display:flex;align-items:center;gap:6px}
+  .sub-t .ic{font-size:17px}
+
+  /* overview timeline */
+  .tline{list-style:none;margin:0;padding:0}
+  .tline li{position:relative;padding:0 0 22px 30px;border-left:2px solid var(--line)}
+  .tline li:last-child{padding-bottom:0}
+  .tline li:before{
+    content:"";position:absolute;left:-8px;top:3px;width:14px;height:14px;border-radius:50%;
+    background:var(--peak,#0f6f8f);box-shadow:0 0 0 3px #fff
+  }
+  .tline li:nth-child(1):before{background:var(--penang)}
+  .tline li:nth-child(2):before{background:var(--penang)}
+  .tline li:nth-child(3):before{background:var(--langkawi)}
+  .tline li:nth-child(4):before{background:var(--langkawi)}
+  .tline li:nth-child(5):before{background:var(--kl)}
+  .tline li:nth-child(6):before{background:var(--kl)}
+  .tline li:last-child:before{background:var(--f1)}
+  .tline .d{font-size:13px;font-weight:700;color:var(--muted)}
+  .tline .tt{font-weight:700;font-size:16px;margin:1px 0 3px}
+  .tline .dd{font-size:14px;color:var(--muted)}
+
+  /* f1 highlight */
+  .f1badge{display:inline-flex;align-items:center;gap:5px;font-weight:700;letter-spacing:.5px;
+    background:var(--f1);color:#fff;padding:3px 10px;border-radius:6px;font-size:12px}
+  .view{display:flex;gap:10px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line)}
+  .view:last-child{border-bottom:0}
+  .view .rank{flex:0 0 auto;width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;
+    font-size:13px;font-weight:800;color:#fff;background:var(--f1)}
+  .view .rank.b3{background:var(--gold)}
+  .view .vh{font-weight:700;font-size:15.5px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+  .view .vd{font-size:14px;color:var(--muted);margin-top:3px}
+  .view .vd ul{margin:6px 0 0;padding-left:18px}
+  .view .vd li{margin:3px 0}
+
+  /* ---------- PLACE INDEX ---------- */
+  .pdate{display:inline-block;font-size:13px;font-weight:700;color:#fff;background:var(--brand);
+    padding:4px 12px;border-radius:8px;margin:20px 0 4px}
+  .pdate:first-child{margin-top:6px}
+  .plist{list-style:none;margin:0;padding:0;counter-reset:pi}
+  .plist li{position:relative;padding:8px 0 8px 30px;border-bottom:1px dashed var(--line);font-size:14.5px;line-height:1.5}
+  .plist li:last-child{border-bottom:0}
+  .plist li:before{counter-increment:pi;content:counter(pi);position:absolute;left:0;top:9px;
+    width:20px;height:20px;border-radius:6px;background:#eef1ec;color:var(--muted);
+    font-size:11px;font-weight:700;text-align:center;line-height:20px}
+  .plist li .lt{display:block;color:var(--muted);font-size:12.5px;margin-top:1px}
+  .plist .place .pin{display:none}
+  .plist .addr{display:block;margin-left:0}
+
+  footer{padding:30px 0 60px;text-align:center;color:var(--muted);font-size:13px;
+    padding-bottom:calc(60px + env(safe-area-inset-bottom))}
+  footer .small{font-size:12px;opacity:.8;margin-top:6px}
+
+  /* ---------- TO-DO CHECKLIST ---------- */
+  .todo-prog{display:flex;align-items:center;gap:10px;margin:14px 0 16px;font-size:13.5px;font-weight:700;color:var(--muted)}
+  .todo-prog .pbar{flex:1;height:8px;border-radius:8px;background:#e8e1d6;overflow:hidden}
+  .todo-prog .pbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--penang),var(--langkawi));transition:width .25s}
+  .tp-reset{border:1px solid var(--line);background:#fff;color:var(--muted);font-size:12px;padding:5px 11px;border-radius:8px;cursor:pointer;font-weight:600}
+  .todo-item{display:flex;align-items:flex-start;gap:12px;padding:13px 0;border-bottom:1px dashed var(--line);
+    cursor:pointer;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;touch-action:manipulation;
+    -webkit-tap-highlight-color:transparent}
+  .todo-item:last-child{border-bottom:0}
+  .todo-item .box{flex:0 0 auto;width:26px;height:26px;border-radius:9px;border:2px solid #ccd4d8;background:#fff;
+    display:flex;align-items:center;justify-content:center;font-size:15px;color:#fff;
+    margin-top:0;transition:all .15s;box-sizing:border-box}
+  .todo-item:active .box{transform:scale(.9)}
+  .todo-tip{font-size:12.5px;color:var(--muted);line-height:1.6;background:#faf7f0;border:1px dashed var(--line);
+    border-radius:10px;padding:9px 12px;margin:12px 0 0}
+  .todo-tip b{color:#5a6a74}
+  .todo-item.done .box{background:var(--penang);border-color:var(--penang)}
+  .todo-item.done .box:before{content:"✓";font-weight:700}
+  .todo-item .tk{display:block;font-weight:600;font-size:15px;line-height:1.5}
+  .todo-item.done .tk{text-decoration:line-through;color:var(--muted)}
+  .todo-item .tn{display:block;color:var(--muted);font-size:13px;margin-top:2px;line-height:1.55}
+  .todo-item .tn b{color:#5a6a74}
+  .todo-item.hot .box{border-color:var(--f1)}
+  .todo-item.hot .tk{color:var(--f1)}
+
+  /* floating scroll-top */
+  .totop{
+    position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));
+    width:46px;height:46px;border-radius:50%;background:#fff;border:1px solid var(--line);
+    box-shadow:0 5px 18px rgba(28,43,51,.18);display:flex;align-items:center;justify-content:center;
+    font-size:20px;z-index:40;opacity:0;pointer-events:none;transition:opacity .2s;color:var(--brand)
+  }
+  .totop.show{opacity:1;pointer-events:auto}
+
+  @media (max-width:480px){
+    .hero h1{font-size:26px}
+    .row .tm{flex-basis:58px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ========= HERO ========= -->
+<div class="hero">
+  <div class="wrap hero-in">
+    <span class="kicker">🏁 行程速览 · 杭州出发 · 4 人同行（带父母）</span>
+    <h1>马来西亚 · 新加坡<br>F1 行程攻略</h1>
+    <div class="sub">槟城 → 兰卡威 → 吉隆坡 → 新加坡（F1 赛期）</div>
+    <div class="dates">
+      <div class="d"><b>10.3 周六</b><span>落地槟城</span></div>
+      <div class="d"><b>10.5 周一</b><span>飞兰卡威</span></div>
+      <div class="d"><b>10.7 周三</b><span>飞吉隆坡</span></div>
+      <div class="d"><b>10.9 周五</b><span>飞新加坡</span></div>
+      <div class="d"><b>10.11 周日</b><span>樟宜 T1 · 14:50 起飞</span></div>
+    </div>
+    <div class="flags">
+      <span>🇲🇾 马来西亚 3 城</span>
+      <span>🇸🇬 新加坡 F1 赛期</span>
+      <span>🏎️ F1 只看 10.9 周五这一晚</span>
+      <span>📶 单文件 · 离线可读</span>
+    </div>
+    <div class="maptoggle" id="maptoggle">
+      <button class="on" data-map="google">Google 地图</button>
+      <button data-map="baidu">百度地图</button>
+    </div>
+  </div>
+</div>
+
+<!-- ========= STICKY NAV ========= -->
+<nav class="nav">
+  <div class="wrap">
+    <a href="#overview">总览</a>
+    <a href="#penang" class="penang">🇲🇾 槟城</a>
+    <a href="#langkawi" class="langkawi">🏝️ 兰卡威</a>
+    <a href="#kl" class="kl">🏙️ 吉隆坡</a>
+    <a href="#durian" class="durian">🥭 榴莲</a>
+    <a href="#singapore" class="sg">🇸🇬 新加坡</a>
+    <a href="#f1" class="f1">🏁 F1</a>
+    <a href="#budget">💴 预算</a>
+    <a href="#places">📋 清单</a>
+    <a href="#todo">✅ 行前</a>
+  </div>
+</nav>
+
+<div class="wrap">
+<main>
+
+<!-- ========= OVERVIEW ========= -->
+<section id="overview">
+  <div class="cityhd">
+    <span class="flag">📍</span>
+    <div>
+      <h2>行程总览</h2>
+      <div class="meta">10.3 — 10.11 · 9 天 8 晚 · 4 个城市</div>
+    </div>
+  </div>
+  <p class="lede">新加坡 F1 是 <b>10.9–10.11</b>（滨海湾街道赛），已购 <b>Zone 4</b> 门票，<b>只看 10.9 周五这一晚</b>。4 段航班已出票（3 段亚航 + 返程厦航），行程按真实起降时刻排。每个城市都按 <b>住宿 / 每日详情 / 注意事项</b> 分栏，开头有从酒店出发的链路图。</p>
+
+  <div class="note warn" style="margin-top:14px;border-left:4px solid #c0392b">
+    <b style="color:#c0392b">🛂 落地第一件事：马来西亚入境必须走人工柜台盖章</b><br>
+    槟城机场<b>有</b>自助闸门，中国公民免签旅游也能用——但<b>自助通关不盖章</b>。<b>中国驻槟城总领馆提醒</b>：落地北马没入境章、或章上停留期有误，<b>离境会被卡</b>。<b>4 人都排人工柜台</b>，盖完章<b>当场核对停留期限</b>（免签 30 天，10.3 入境 → 最晚 11.2 离境）。详见「🇲🇾 槟城」页的入境说明。
+  </div>
+
+  <div class="sub-t"><span class="ic">👥</span>同行 4 人（证件姓名，务必与此一致）</div>
+  <div class="card">
+    <div class="bd" style="display:block;padding:8px 16px 14px">
+      <div class="row"><div class="tm">主人</div><div class="body"><div class="tagline">胡丁相 · <span style="font-family:ui-monospace,monospace;font-size:13px">HU DINGXIANG</span></div><div class="desc">1988-09-23 · 男 · 护照 EJ3965293（2030-05-26 到期）</div></div></div>
+      <div class="row"><div class="tm">女友</div><div class="body"><div class="tagline">洪杏 · <span style="font-family:ui-monospace,monospace;font-size:13px">HONG XING</span></div><div class="desc">1990-02-03 · 女 · 护照 EN4920896（2034-10-20 到期）</div></div></div>
+      <div class="row"><div class="tm">岳父</div><div class="body"><div class="tagline">洪晓园 · <span style="font-family:ui-monospace,monospace;font-size:13px">HONG XIAOYUAN</span></div><div class="desc">1960-06-15 · 男 · 护照 ED2855587（<b>2028-05-21 到期，4 人里最早的</b>）</div></div></div>
+      <div class="row"><div class="tm">岳母</div><div class="body"><div class="tagline">程忠燕 · <span style="font-family:ui-monospace,monospace;font-size:13px">CHENG ZHONGYAN</span></div><div class="desc">1962-08-22 · 女 · 护照 ED2855566（<b>2028-05-21 到期</b>）</div></div></div>
+      <div class="note tip" style="margin-top:10px"><b>✅ 2026-10-02 已逐字核对</b>4 人在国际机票、3 段亚航、4 家酒店、4 张 MDAC、4 张登机牌、景点门票上的姓名拼写<b>全部一致，零差异</b>；护照有效期全部 &gt; 6 个月。</div>
+    </div>
+  </div>
+
+  <div class="chips" style="margin-top:14px">
+    <span class="ch">📏 链路图：<b>🚶步行 · 🚇地铁 · 🚗Grab</b> + 分钟数</span>
+    <span class="ch">🗺️ 每天可展开<b>当天路线地图</b></span>
+    <span class="ch">🥭 榴莲只在马来西亚吃，新加坡境内不能带</span>
+  </div>
+
+  <div class="sub-t"><span class="ic">✈️</span>航班清单（4 段已出票）</div>
+  <div class="card">
+    <div class="bd" style="display:block;padding:8px 16px 14px">
+      <div class="row"><div class="tm">10.3 六</div><div class="body"><div class="tagline">杭州 → 槟城 · <span style="color:#c0392b">MF8592 + MF8705</span>（厦门中转，两段同为 T3）</div><div class="desc">杭州萧山 <b>T3</b> 08:25 → 厦门 <b>T3</b> 10:15 ｜ 中转 <b>3h35m</b> ｜ 厦门 13:45 → 槟城 17:50<br><b>出境手续在厦门办</b> · 行李是否直挂<b>看杭州值机时的行李条</b>（PEN=直挂）· 详见下方「🔄 厦门中转」</div></div></div>
+      <div class="row"><div class="tm">10.5 一</div><div class="body"><div class="tagline">槟城 → 兰卡威 · <span style="color:#c0392b">AK6242</span></div><div class="desc">13:30 → 14:05 · 约 35 分钟（订单标注槟城机场 D）</div></div></div>
+      <div class="row"><div class="tm">10.7 三</div><div class="body"><div class="tagline">兰卡威 → 吉隆坡 · <span style="color:#c0392b">AK6325</span></div><div class="desc">14:30 → 15:35 · 落地 <b>klia2</b> · 登机时间 13:50</div></div></div>
+      <div class="row"><div class="tm">10.9 五</div><div class="body"><div class="tagline">吉隆坡 → 新加坡 · <span style="color:#c0392b">AK715</span></div><div class="desc">14:25 → 15:40 · <b>国际航班</b>，klia2 出发，登机时间 13:45 · 抵达<b>樟宜 T4</b></div></div></div>
+      <div class="row"><div class="tm">10.11 日</div><div class="body"><div class="tagline">新加坡 → 杭州 · <span style="color:#c0392b">MF8704</span>（厦门航空）</div><div class="desc">樟宜 <b>T1</b> 14:50 → 杭州萧山 <b>T4</b> 20:15 · 直飞</div></div></div>
+      <div class="note warn" style="margin-top:14px"><b>⚠️</b>三段亚航是<b>廉航</b>，手提限 7kg（托运已加购）。吉隆坡的亚航在 <b>klia2</b>（不是 KLIA），别走错航站楼。<b>樟宜 10.9 到 T4、10.11 从 T1 走</b>——两个航站楼不互通，需坐接驳。</div>
+      <div class="note tip" style="margin-top:8px"><b>💡</b>去程 <b>杭州→厦门是国内段</b>，<b>出境手续在厦门办</b>（中转 3h30m，够用）。行李<b>直挂到槟城</b>，在厦门不用取。</div>
+
+      <div class="sub-t" style="margin-top:20px"><span class="ic">🔄</span>10.3 厦门中转 · 3 小时 35 分怎么过</div>
+      <div class="note warn"><b>⚠️ 先搞清一件事：行李要不要在厦门取？</b>取决于你<b>在杭州值机时办的是哪种票</b>——三种可能，落地前必须在杭州问清楚：</div>
+      <div class="card"><div class="bd" style="display:block;padding:8px 16px 14px">
+        <div class="row"><div class="tm">① 一票到底<br>+ 行李直挂</div><div class="body"><div class="tagline" style="color:var(--penang)">最省事 · 大概率是这个</div><div class="desc">杭州就把行李直挂到槟城、<b>国际段登机牌也一起打出来</b>。厦门<b>不用取行李、不用重新值机</b>，直接上二楼办出境。</div></div></div>
+        <div class="row"><div class="tm">② 只直挂了<br>行李</div><div class="body"><div class="tagline">多一步</div><div class="desc">行李不用取，但<b>没有国际段登机牌</b>——落地后上二楼，去<b>国际出发厅 F 柜台</b>补打登机牌。</div></div></div>
+        <div class="row"><div class="tm">③ 没直挂</div><div class="body"><div class="tagline" style="color:#c0392b">最麻烦</div><div class="desc">必须在一层到达厅<b>提取行李</b>，再上二楼重新排队值机、托运。时间会紧不少。</div></div></div>
+        <div class="note tip" style="margin-top:12px"><b>✅ 怎么当场确认（一句话）</b>在杭州值机时问：<b>「行李能直挂到槟城吗？」</b>然后<b>看行李条上的目的地代码</b>——<b>写 PEN 就是直挂 ✓</b>；<b>写 XMN 就是没直挂 ✗</b>，厦门要取。顺手再问一句「国际段登机牌能现在一起打吗？」</div>
+      </div></div>
+
+      <div class="card"><div class="bd" style="display:block;padding:8px 16px 14px">
+        <div class="row"><div class="tm">10:15</div><div class="body"><div class="tagline">🛬 MF8592 落地厦门 T3（国内到达 · 1 楼）</div><div class="desc">去程两段<b>都在 T3</b>，不用换航站楼，省事。有疑问先去<b>到达厅 7 号门对面的中转服务柜台</b>（电话 95557），或隔离区<b>6 号登机口旁的中转柜台</b>。</div></div></div>
+        <div class="row"><div class="tm">10:45</div><div class="body"><div class="tagline">⬆️ 上二楼国际出发厅</div><div class="desc">没拿到国际段登机牌的话，去<b>国际出发厅 F 柜台</b>补打。</div></div></div>
+        <div class="row"><div class="tm">11:00</div><div class="body"><div class="tagline">🛂 办出境：海关 → 边检 → 安检</div><div class="desc">顺序是<b>出境海关卫生检疫 → 出境边检 → 安全检查</b>。<b>国庆假期排队不可控</b>，留足 45–60 分钟，别卡着点办。</div></div></div>
+        <div class="row"><div class="tm">11:45</div><div class="body"><div class="tagline">🍜 到登机口 → 吃午饭 + 歇一会儿</div><div class="desc">这里是今天唯一的空档（约 1 小时）。机场有厦门小吃；厦航贵宾休息室（如有权益/信用卡）有热菜和<b>现煮沙茶面</b>。一家人 06:30 就出门了，<b>这段正好补觉</b>。</div></div></div>
+        <div class="row"><div class="tm">13:00</div><div class="body"><div class="tagline">⏰ 国际航班值机截载（兜底线）</div><div class="desc">厦航国际/地区航班<b>起飞前 45 分钟截载</b>。这是最后的红线，务必在此之前办完。</div></div></div>
+        <div class="row"><div class="tm">13:45</div><div class="body"><div class="tagline">✈️ MF8705 起飞 → 17:50 抵槟城</div></div></div>
+        <div class="note warn" style="margin-top:12px"><b>⏱️ 时间够吗？够。</b>厦航在厦门机场的<b>国内转国际最短衔接时间是 90 分钟</b>，你有 <b>3 小时 35 分</b>，是下限的两倍多。</div>
+        <div class="note warn" style="margin-top:8px"><b>🚫 别出机场</b>厦门市区离机场只有约 10 km，但<b>不建议出去逛</b>：出去再回来要重走一遍完整出境流程，国庆假期边检排队不可控，而后面<b>兰卡威和吉隆坡的酒店都是不可退的</b>——误机代价太大。就在机场里待着。</div>
+        <div class="note tip" style="margin-top:8px"><b>💡 免费中转休息室用不上（差 30 分钟）</b>厦航有免费中转休息室，在 <b>T3 负一层</b>（06:00–22:00），条件是「同一张票 + 含国际段 + <b>中转衔接 4–24 小时</b>」。你们是 <b>3h35m</b>，<b>差 30 分钟不达标</b>——不值得为这个改航班，机场里找个座位歇也一样。另外 T3 到达厅西侧还有个简易中转休息室，可凭当日中转机票试试。</div>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="sub-t"><span class="ic">🏨</span>住宿清单（4 城均 <b>2 间房</b>）</div>
+  <div class="card">
+    <div class="bd" style="display:block;padding:8px 16px 14px">
+      <div class="row"><div class="tm">10.3–5</div><div class="body"><div class="tagline">🇲🇾 <span class="place" data-place="Yeng Keng Hotel 燕京酒店" data-addr="362 Lebuh Chulia, 10200 George Town, Penang">燕京酒店 · Yeng Keng Hotel</span></div><div class="desc">2 晚 · 2 间 <b>Courtyard Room</b> · 乔治市世遗区 Chulia 街 · 出门就是壁画街。<b>入住需押金 MYR 1500/间</b>（现金或信用卡）。</div></div></div>
+      <div class="row"><div class="tm">10.5–7</div><div class="body"><div class="tagline">🏝️ <span class="place" data-place="Pelangi Beach Resort &amp; Spa Langkawi" data-alt="彩虹度假酒店" data-addr="Pantai Cenang, 07000 Langkawi, Kedah">彩虹度假酒店 · Pelangi Beach Resort</span></div><div class="desc">2 晚 · 2 间 <b>Lakefront King</b>（含 4 份早餐）· 就在<b>珍南海滩</b>上，出门即沙滩。现场另付遗产费 MYR 40。</div></div></div>
+      <div class="row"><div class="tm">10.7–9</div><div class="body"><div class="tagline">🏙️ <span class="place" data-place="The Ritz-Carlton Kuala Lumpur" data-alt="丽思卡尔顿" data-addr="168 Jalan Imbi, Bukit Bintang, 55100 Kuala Lumpur">丽思卡尔顿 · The Ritz-Carlton KL</span></div><div class="desc">2 晚 · 2 间 <b>Deluxe King</b>（含早餐）· 武吉免登，紧邻柏威年，步行到阿罗街 9 分钟。现场另付旅游税 ¥66.52。</div></div></div>
+      <div class="row"><div class="tm">10.9–11</div><div class="body"><div class="tagline">🇸🇬 <span class="place" data-place="York Hotel Singapore 约克酒店" data-addr="21 Mount Elizabeth, Singapore 228516">约克酒店（怡阁） · York Hotel</span></div><div class="desc">2 晚 · 2 间 <b>Superior Twin</b>（两张订单各 1 间）· 乌节路 Mount Elizabeth · <b>在 F1 封路区外</b>。<b>退房 11:00 前</b>。</div></div></div>
+    </div>
+  </div>
+
+  <div class="sub-t"><span class="ic">🗓️</span>行程时间线</div>
+  <div class="card">
+    <div class="bd" style="display:block;padding:16px 16px">
+      <ul class="tline">
+        <li>
+          <div class="d">🇲🇾 10.3 – 10.5 · 2晚</div>
+          <div class="tt">第一站 · 槟城</div>
+          <div class="dd">乔治市老城 ／ 升旗山缆车 ／ 壁画街 ／ 龙山堂邱公司 ／ 侨生博物馆 ／ 姓氏桥</div>
+        </li>
+        <li>
+          <div class="d">✈️ 10.5 周一 · AK6242</div>
+          <div class="tt">槟城 → 兰卡威（13:30 – 14:05）</div>
+        </li>
+        <li>
+          <div class="d">🏝️ 10.5 – 10.7 · 2晚</div>
+          <div class="tt">第二站 · 兰卡威</div>
+          <div class="dd">Hidden Langkawi 火舞 ／ 跳岛 + 落日巡游一整天 ／ Kilim 红树林生态游</div>
+        </li>
+        <li>
+          <div class="d">✈️ 10.7 周三 · AK6325</div>
+          <div class="tt">兰卡威 → 吉隆坡（14:30 – 15:35）</div>
+        </li>
+        <li>
+          <div class="d">🏙️ 10.7 – 10.9 · 2晚</div>
+          <div class="tt">第三站 · 吉隆坡</div>
+          <div class="dd">茨厂街 ／ 黑风洞 ／ 旧火车站 ／ 独立广场老城线 ／ 吉隆坡塔 ／ 柏威年购物 ／ 亚罗街夜市</div>
+        </li>
+        <li>
+          <div class="d">✈️ 10.9 周五 · AK715</div>
+          <div class="tt">吉隆坡 → 新加坡（14:25 – 15:40）</div>
+        </li>
+        <li>
+          <div class="d">🏁 10.9 – 10.11 · F1 赛期</div>
+          <div class="tt">第四站 · 新加坡</div>
+          <div class="dd">Zone 4 看冲刺排位赛 ／ 林俊杰演唱会 ／ 海南鸡饭 ／ 滨海湾花园花穹+云雾林 &amp; 超级树灯光秀
+            <br><b style="color:#b3202e">🏎️ F1 只看 10.9 周五这一晚</b>（20:30 冲刺排位赛 + 22:30 林俊杰）。<b>周六晚改去滨海湾花园看超级树灯光秀</b>，10.11 周日 14:50 飞走。
+          </div>
+        </li>
+        <li>
+          <div class="d">✈️ 10.11 周日 · MF8704</div>
+          <div class="tt">新加坡 → 杭州（樟宜 T1 14:50 – 杭州 T4 20:15）</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- =====================  PENANG  ============================ -->
+<!-- ============================================================ -->
+<section id="penang">
+  <div class="cityhd">
+    <span class="flag">🇲🇾</span>
+    <div>
+      <h2>第一站 · 槟城</h2>
+      <div class="meta">10.3 落地 — 10.5 13:30 飞兰卡威 · 住乔治市老城区</div>
+    </div>
+  </div>
+  <nav class="subnav">
+    <a href="#penang-stay" class="penang">🏨 住宿</a>
+    <a href="#penang-days" class="penang">📅 每日详情</a>
+    <a href="#penang-notes" class="penang">🎫 注意事项</a>
+  </nav>
+
+  <!-- ---- 住宿 ---- -->
+  <div id="penang-stay">
+    <div class="sub-t"><span class="ic">🏨</span>住宿</div>
+    <div class="card penang">
+      <div class="bd" style="display:block;padding:6px 16px 12px">
+        <div class="stay">
+          <span class="em">🇲🇾</span>
+          <div>
+            <div class="nm"><span class="place" data-place="Yeng Keng Hotel 燕京酒店" data-addr="362 Lebuh Chulia, 10200 George Town, Penang">燕京酒店 · Yeng Keng Hotel</span></div>
+            <div class="ad">362 Lebuh Chulia, George Town · 世遗区 Chulia 街</div>
+            <div class="tags"><span>10.3–10.5 · 2 晚</span><span>2 间 Courtyard Room</span><span>押金 MYR 1500/间</span><span>出门即壁画街</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub-t"><span class="ic">📏</span>从酒店出发</div>
+    <ul class="route">
+      <li class="start"><span class="tn">🏨 燕京酒店 · 起点</span></li>
+      <li><span class="mv walk">🚶 3 分</span><span class="tn"><span class="place" data-place="Green House Prawn Mee 青屋虾面">青屋虾面</span><span class="lt2">同一条街</span></span></li>
+      <li><span class="mv walk">🚶 5 分</span><span class="tn"><span class="place" data-place="Chulia Street 茶室 George Town">Chulia 街茶室（早餐）</span><span class="lt2">多春茶室周日休</span></span></li>
+      <li><span class="mv walk">🚶 10 分</span><span class="tn"><span class="place" data-place="Kimberley Street 汕头街 Penang">汕头街</span><span class="lt2">10.3 抵达当晚在这吃</span></span></li>
+      <li><span class="mv walk">🚶 5 分</span><span class="tn"><span class="place" data-place="George Town Street Art 壁画街">壁画街</span></span></li>
+      <li><span class="mv walk">🚶 5 分</span><span class="tn"><span class="place" data-place="Leong San Tong Khoo Kongsi">龙山堂邱公司</span><span class="lt2">从壁画街再走 5 分</span></span></li>
+      <li><span class="mv walk">🚶 10 分</span><span class="tn"><span class="place" data-place="Pinang Peranakan Mansion 侨生博物馆">侨生博物馆</span><span class="lt2">从邱公司再走 10 分</span></span></li>
+      <li><span class="mv walk">🚶 10 分</span><span class="tn"><span class="place" data-place="Clan Jetties 姓氏桥">姓氏桥</span><span class="lt2">从侨生博物馆再走 10 分</span></span></li>
+      <li><span class="mv walk">🚶 15 分</span><span class="tn"><span class="place" data-place="Kimberley Street 汕头街 Penang">汕头街</span><span class="lt2">沿海边走回，晚餐可选</span></span></li>
+      <li><span class="mv walk">🚶 12 分</span><span class="tn"><span class="place" data-place="Seven Streets Market 七条路巴刹">七条路巴刹</span><span class="lt2">只开上午</span></span></li>
+      <li><span class="mv car">🚗 15 分</span><span class="tn"><span class="place" data-place="Gurney Drive Hawker Centre" data-alt="新关仔角">新关仔角</span></span></li>
+      <li><span class="mv car">🚗 22 分</span><span class="tn"><span class="place" data-place="Penang Hill 升旗山">升旗山 + 生态公园</span><span class="lt2">10.4 一早去（票已购）</span></span></li>
+      <li><span class="mv car">🚗 30 分</span><span class="tn"><span class="place" data-place="Penang International Airport" data-alt="槟城国际机场">槟城机场</span><span class="lt2">订单标注 D（槟城为单一航站楼）</span></span></li>
+    </ul>
+    <div class="note tip"><b>💡</b>10.4 下午四个点（壁画街 → 邱公司 → 侨生博物馆 → 姓氏桥）连成一条线，全程步行、不绕路，最后一站姓氏桥今天压缩到 25 分；其余都在步行圈内，走累随时回房歇。</div>
+    <div class="note warn"><b>⚠️ 10.4 是国庆假期 + 周日</b>升旗山是槟城最热门的点，缆车站会排长队。<b>07:15 就出发</b>，比常规早一小时；生态公园 09:00 开园，踩点进最省时间。</div>
+  </div>
+
+  <!-- ---- 每日详情 ---- -->
+  <div id="penang-days">
+    <div class="sub-t"><span class="ic">📅</span>每日详情</div>
+    <div class="card penang">
+      <div class="hd" data-toggle>
+        <span class="tag" style="background:var(--penang)">D1</span>
+        <div><div class="t">10.3 周六 · 抵达</div><div class="s">落地 → 酒店 → 小贩中心晚餐</div></div>
+        <span class="chev">▾</span>
+      </div>
+      <div class="bd">
+        <div class="row"><div class="tm">17:50</div><div class="body"><div class="tagline">🛬 落地槟城（MF8705）· <span style="color:#fff;background:#c0392b;font-size:12px;padding:2px 8px;border-radius:6px">4 人全部走人工柜台盖章</span></div><div class="desc">
+          <b>⚠️ 最重要的一步：入境马来西亚必须走人工柜台盖章，别走自助闸门。</b>槟城机场<b>有</b>自助闸门（中国公民免签旅游可用），但<b>自助闸门不盖章</b>、记录只在系统里。中国驻槟城总领馆明确提醒：落地北马要检查入境章，<b>没盖章或停留期有误，离境时会受阻</b>。<br>
+          <b>做法</b>：4 人都排人工柜台 → 让官员在护照上盖入境章 → <b>当场看清章上的停留期限</b>（免签 30 天，10.3 入境 → 最晚 11.2 离境）→ 确认无误再走。<br>
+          <b>万一走错了自助闸门</b>：<b>不要离开机场</b>，立刻去机场移民局办公室补盖章。<br>
+          之后：取行李 → <span class="place" data-place="Penang International Airport" data-alt="槟城国际机场" data-addr="1 Airport, 11900 Bayan Lepas">Grab 去燕京酒店</span>（🚗 30 分 / 约 30 马币）。<b>入境 + 取行李约 40–50 分钟，实际预计 19:00–19:30 到酒店</b>，别按 18:40 排。<br>
+          <b>好消息</b>：你们<b>不去东马</b>（沙巴 / 砂拉越）—— 那边没盖入境章会被直接认定「非法入境」，罚款、拘留、禁止入境，比西马严重得多，你们不用担这个。</div></div></div>
+        <div class="row"><div class="tm">19:30</div><div class="body"><div class="tagline">🍽️ 晚餐：汕头街一带（酒店步行 10 分内）</div><div class="desc"><span class="place" data-place="Kimberley Street 汕头街 Penang">汕头街 Kimberley St</span> 与隔壁新街 Lebuh Campbell 就是小吃聚集地：粿条汤、四果汤、卤味、炒粿条，人均 15–25 马币。
+          <br><b>⚠️ 原计划是去新关仔角小贩中心——它在城北 5 km，往返 30–40 分钟。</b>当天 06:30 就从杭州出发转两趟飞机、19:00 后才到酒店，再折返一趟对长辈偏累，<b>已把新关仔角挪到 10.4 傍晚</b>；今晚就在酒店门口吃、吃完散步看壁画街夜景。</div></div></div>
+        <div class="dmap" data-stops="槟城机场~Penang International Airport|燕京酒店~Yeng Keng Hotel 燕京酒店|汕头街~Kimberley Street Food Paradise|壁画街~George Town Street Art 壁画街"></div>
+      </div>
+    </div>
+
+    <div class="card penang">
+      <div class="hd" data-toggle>
+        <span class="tag">D2</span>
+        <div><div class="t">10.4 周日 · 升旗山生态公园 + 老城</div><div class="s">早出发上山 → 生态公园 → 午休 → 壁画街 → 邱公司 → 侨生博物馆 → 姓氏桥</div></div>
+        <span class="chev">▾</span>
+      </div>
+      <div class="bd">
+        <div class="row"><div class="tm">06:45</div><div class="body"><div class="tagline">☕ 早餐：Chulia 街就近茶室</div><div class="desc"><b>⚠️ 多春茶室周日休息</b>（10.4 正好是周日），改在酒店步行圈内解决——Chulia 街 / Lebuh Campbell 一带的茶室大多 <b>07:00–07:30 开</b>，或直接在酒店吃。想吃多春的话，挪到 10.5 早上（周一开，08:00 起）。</div></div></div>
+        <div class="row"><div class="tm">07:15</div><div class="body"><div class="tagline">🚗 出发去升旗山</div><div class="desc">🚗 22 分。<b>今天必须早走</b>——国庆假期 + 周日，缆车站会排长队，早半小时省一小时。</div></div></div>
+        <div class="row"><div class="tm">07:40</div><div class="body"><div class="tagline">🎫 到山脚：换票 + 排队</div><div class="desc">到 <b>5 或 6 号 Online Redemption Counter</b> 换缆车票（票号 615176，4 张 Express Lane）。<b>Express Lane 假期也照样排</b>，留 30–40 分钟余量。缆车 <b>06:30</b> 就开始运行。</div></div></div>
+        <div class="row"><div class="tm">08:15</div><div class="body"><div class="tagline">⛰️ 缆车上山（约 10 分）</div><div class="desc">全程缆车不用爬，<b>抢右侧座位</b>视野最好。山顶比市区凉 3–5℃、风大，<b>带件薄外套</b>。</div></div></div>
+        <div class="row"><div class="tm">08:30</div><div class="body"><div class="tagline">🌤️ 山顶：观景台 + 殖民地建筑</div><div class="desc">生态公园 <b>09:00 才开园</b>，先在 <span class="place" data-place="David Brown's Restaurant Penang Hill">David Brown 观景台</span>、山顶广场拍一轮全城 + 海景。</div></div></div>
+        <div class="row"><div class="tm">09:00</div><div class="body"><div class="tagline">🌿 升旗山生态公园 The Habitat <span style="color:#fff;background:var(--penang);font-size:12px;padding:2px 8px;border-radius:6px">票已购 · 4 张</span></div><div class="desc"><b>开园 09:00 第一时间进</b>，避开人潮。园内约 <b>2 小时</b>：热带雨林栈道 + 树冠步道 + <b>Curtis Crest 树顶天空步道</b>（全岛最高观景点）。<br>
+          <b>票面</b>：标准日场票（日间场次）· 成人 ×4 · <b>不含缆车票</b> · 有效期 <b>2026-09-30 ~ 2027-07-21</b>，<b>不是当日票、必须提前买</b>（已买好）。4 张是<b>各自独立的二维码</b>，一人一张，别共用截图。<br>
+          <b>⚠️ 出发前上官网查一下 Curtis Crest 是否已恢复</b>——据报道它从 2026-05-13 起在检修，园区照常开、但部分区域可能关闭。</div></div></div>
+        <div class="row"><div class="tm">11:00</div><div class="body"><div class="tagline">📸 山顶补拍 → <b>11:30 下山</b></div><div class="desc">生态公园出来再补几张，<b>11:30 坐缆车下山</b>——这个点下山的人比正午少，排队时间短。</div></div></div>
+        <div class="row"><div class="tm">12:15</div><div class="body"><div class="tagline">🍜 午餐 + 榴莲</div><div class="desc"><span class="place" data-place="Green House Prawn Mee 青屋虾面" data-addr="338 Lebuh Chulia, 10200 George Town">米其林青屋虾面</span>，🚶 3 分；同一食阁还有 <span class="place" data-place="明记砂煲肉骨茶" data-addr="Lebuh Chulia, George Town">明记砂煲肉骨茶</span>。饭后去 <span class="place" data-place="Durian Valley 聚榴堂 George Town Penang" data-addr="George Town, Penang">聚榴堂</span> 吃榴莲。</div></div></div>
+        <div class="row"><div class="tm">13:30</div><div class="body"><div class="tagline">🛏️ 回酒店午休</div><div class="desc">上午在山上待了 4 个多小时，<b>这段必须歇</b>，14:15 再出门。</div></div></div>
+        <div class="row"><div class="tm">14:30</div><div class="body"><div class="tagline">🖼️ 壁画街（30 分）</div><div class="desc">🚶 5 分。拍《姐弟共骑》，两侧小文创店顺路看。不大，<b>拍完就走</b>。</div></div></div>
+        <div class="row"><div class="tm">15:00</div><div class="body"><div class="tagline">🏛️ 龙山堂邱公司（30 分）</div><div class="desc">🚶 5 分。门票 RM10–15，<b>备现金</b>。闽南式宗祠，<b>比壁画街本身更值得看</b>，进去直接逛。</div></div></div>
+        <div class="row"><div class="tm">15:30</div><div class="body"><div class="tagline">🏮 侨生博物馆（1 小时）</div><div class="desc">🚶 10 分，门票 RM30，<b>17:00 关门，务必 15:30 前进</b>。免费导览下午场约 <b>15:30</b>（英文 + 中文，约 45 分）——到点正好跟一场。<b>整个下午最值得慢下来的点。</b></div></div></div>
+        <div class="row"><div class="tm">16:45</div><div class="body"><div class="tagline">🌅 姓氏桥（25 分 · <b>今天这站压缩</b>）</div><div class="desc">🚶 10 分。<b>只走姓周桥</b>，到栈道尽头看一眼海和渔船就走——傍晚光线最好，但今天时间紧。</div></div></div>
+        <div class="row"><div class="tm">18:00</div><div class="body"><div class="tagline">🍢 晚餐：新关仔角小贩中心 <span style="color:#8a6d3b;font-size:12px">（从老城 🚗 15 分）</span></div><div class="desc">亚参叻沙、炒粿条、沙爹串，人均 20–30 马币。<b>这顿是从 10.3 挪过来的</b>——抵达当天太累跑不动，放在今天收尾更合适。</div></div></div>
+        <div class="note warn"><b>⚠️ 今天最长，但都是「坐车 + 慢走」</b>07:00 出门 → 19:30 回。山上全程缆车不爬阶，下午四站步行都在 10 分钟内。<b>关键卡点只有一个：15:30 前必须进侨生博物馆</b>（17:00 关门）。</div>
+        <div class="dmap" data-stops="燕京酒店~Yeng Keng Hotel 燕京酒店|升旗山~Penang Hill 升旗山|升旗山生态公园~The Habitat Penang Hill|青屋虾面~Green House Prawn Mee 青屋虾面|聚榴堂~Durian Valley 聚榴堂|壁画街~George Town Street Art 壁画街|龙山堂邱公司~Leong San Tong Khoo Kongsi|侨生博物馆~Pinang Peranakan Mansion|姓氏桥~Clan Jetties|新关仔角小贩中心~Gurney Drive Hawker Centre"></div>
+      </div>
+    </div>
+
+    <div class="card penang">
+      <div class="hd" data-toggle>
+        <span class="tag" style="background:var(--penang)">D3</span>
+        <div><div class="t">10.5 周一 · 返程</div><div class="s">早餐 → 打包 → 中午飞兰卡威</div></div>
+        <span class="chev">▾</span>
+      </div>
+      <div class="bd">
+        <div class="row"><div class="tm">07:30</div><div class="body"><div class="tagline">🍢 早餐：七条路巴刹</div><div class="desc"><span class="place" data-place="Seven Streets Market 七条路巴刹" data-addr="Lebuh Presgrave, 10300 George Town">七条路巴刹</span>，鸭肉粿条汤、赤脚炒粿条、咖喱面，🚶 12 分。<b>只开上午、11 点前结束，赶飞机必须 07:30 到。</b></div></div></div>
+        <div class="row"><div class="tm">09:30</div><div class="body"><div class="tagline">🍡 娘惹糕点 + 豆腐花 · 回酒店收拾</div><div class="desc">就近买娘惹糕点带上飞机，10:30 前回酒店退房。</div></div></div>
+        <div class="row"><div class="tm">10:45</div><div class="body"><div class="tagline">🚗 退房 → 槟城机场</div><div class="desc">🚗 30 分，<b>11:30 前到机场</b>。槟城是单一航站楼，订单上的「D」指登机区，<b>到机场看大屏确认</b>。AK6242 13:30 起飞。</div></div></div>
+        <div class="row"><div class="tm">13:30</div><div class="body"><div class="tagline">✈️ 槟城 → 兰卡威（AK6242，13:30–14:05）</div></div></div>
+        <div class="dmap" data-stops="七条路巴刹~Seven Streets Market 七条路巴刹|槟城机场~Penang International Airport"></div>
+      </div>
+    </div>
+
+    <div class="sub-t"><span class="ic">🍽️</span>美食</div>
+    <div class="card penang">
+      <div class="meal">
+        <div class="mt"><span class="em">🍜</span>D1 晚餐（落地后） <span class="lb" style="background:var(--penang)">首推</span></div>
+        <div><span class="place" data-place="Gurney Drive Hawker Centre" data-alt="新关仔角" data-addr="Gurney Dr, 10250 George Town">新关仔角小贩中心</span></div>
+        <ul class="picks"><li>亚参叻沙</li><li>炒粿条</li><li>沙爹串</li></ul>
+        <div class="price">人均 20–30 马币 · 18:30–19:00 到</div>
+      </div>
+    </div>
+    <div class="card penang">
+      <div class="meal">
+        <div class="mt"><span class="em">☕</span>D2 早餐（10.4）</div>
+        <div><b>Chulia 街一带茶室</b> — 南洋白咖啡 + 烤面包<br><small style="color:var(--muted)">⚠️ <span class="place" data-place="Toh Soon Cafe 多春茶室" data-addr="139 Lebuh Campbell, George Town">多春茶室</span> <b>周日休息</b>，10.4 正好是周日，去不了。想吃就挪到 10.5 早上（周一开，08:00 起）。</small></div>
+        <ul class="picks">
+          <li>米其林 <span class="place" data-place="Green House Prawn Mee 青屋虾面">青屋虾面</span>（12:15 午餐）</li>
+          <li>明记砂煲肉骨茶（同一食阁）</li>
+          <li>饭后：<span class="place" data-place="Durian Valley 聚榴堂">聚榴堂榴莲</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="card penang">
+      <div class="meal">
+        <div class="mt"><span class="em">🍢</span>D2 晚餐（10.4）</div>
+        <div><span class="place" data-place="Gurney Drive Hawker Centre" data-alt="新关仔角" data-addr="Gurney Dr, 10250 George Town">新关仔角小贩中心 · Gurney Drive</span></div>
+        <ul class="picks"><li>亚参叻沙、炒粿条、沙爹串、蚝煎</li></ul>
+        <div class="price">从老城 Grab 约 15 分（5 km）· 人均 20–30 马币</div>
+      </div>
+    </div>
+    <div class="card penang">
+      <div class="meal">
+        <div class="mt"><span class="em">🍢</span>D3 早餐（10.5）</div>
+        <div><span class="place" data-place="Seven Streets Market 七条路巴刹" data-addr="Lebuh Presgrave, 10300 George Town">七条路巴刹</span></div>
+        <ul class="picks"><li>鸭肉粿条汤</li><li>赤脚炒粿条</li><li>咖喱面</li></ul>
+        <div class="price">⚠️ 只开上午，11 点前结束</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ---- 注意事项 ---- -->
+  <div id="penang-notes">
+    <div class="sub-t"><span class="ic">🛂</span>入境最重要的一件事</div>
+    <div class="note warn" style="border-left:4px solid #c0392b">
+      <b style="color:#c0392b">🛂 落地槟城必须走人工柜台盖章——别走自助闸门</b><br>
+      槟城机场<b>有</b>自助闸门（autogate），中国公民免签旅游是可以用——但<b>自助通关不盖章</b>，出入境记录只在移民局系统里。<b>中国驻槟城总领馆明确提醒</b>：落地北马（槟城/吉打/玻璃市/霹雳）要检查入境章，<b>没有入境章、或章上停留期有误，离境时会被卡住</b>。<br><br>
+      <b>照着做</b>：<br>
+      ① 4 人<b>全部排人工柜台</b>（别分散，也别图快走闸门）<br>
+      ② 让官员在护照上<b>盖入境章</b><br>
+      ③ <b>当场看清章上的停留期限</b>——免签 30 天，10.3 入境 → 最晚 11.2 离境<br>
+      ④ 确认无误再离开柜台<br><br>
+      <b>万一走错了自助闸门</b>：<b>不要离开机场</b>，立刻去机场移民局办公室补盖章。<br>
+      <b>离境时（10.9 吉隆坡 klia2）</b>：也留意一下出境章；建议一样走人工柜台，两边记录对得上最省心。<br>
+      <b>好消息</b>：你们<b>不去东马</b>（沙巴 / 砂拉越）。那边没盖入境章会被直接认定「非法入境」，罚款、拘留、禁止入境——西马没这么严重，但该盖的章还是要盖。
+    </div>
+
+    <div class="sub-t"><span class="ic">🎫</span>注意事项 · 交通与购票</div>
+    <div class="chips">
+      <span class="ch">🚶 老城区全程步行</span>
+      <span class="ch">🚗 跨区一律 <span class="place" data-place="Grab" data-addr="Grab 打车">Grab</span></span>
+    </div>
+    <div class="card penang">
+      <div class="bd" style="display:block;padding:14px 16px">
+        <div class="note tip"><b>已购 ✓</b>升旗山缆车 4 张 Express Lane（票号 615176，RM280，参观日 10.4）+ <b>升旗山生态公园 The Habitat</b> 4 张（成人标准日场票，¥274，有效期至 2027-07-21，<b>4 张各自独立的二维码</b>）。<b>10.4 一早去</b>，抢右侧座位。</div>
+        <div class="note"><b>免约</b>侨生博物馆、龙山堂邱公司都是现场购票；壁画街、姓氏桥免费。</div>
+        <div class="note warn"><b>⏰ 侨生博物馆 <b>17:00 关门</b></b>免费导览下午场各来源写 <b>15:30</b>（也有写 15:00 的）。<b>买票时先问一句当天中文场的准确时间</b>，<b>务必 15:30 前入场</b>——这是今天唯一的硬卡点，晚了就白跑。开放 9:30–17:00。</div>
+        <div class="note warn"><b>⚠️ 多春茶室周日休息</b>10.4 是周日，<b>去不了</b>。早餐改在 Chulia 街就近茶室；想专程去多春就挪到 10.5 早上（周一 08:00 开）。</div>
+        <div class="note warn"><b>⚠️ Curtis Crest 树顶步道在检修</b>生态公园的招牌景点据报道 <b>2026-05-13 起维护</b>，园区照常开但部分区域可能关闭。<b>10.3 睡前上官网 / 小红书确认是否恢复</b>。</div>
+        <div class="note warn"><b>💵 带现金</b>邱公司门票（RM10–15）<b>可能不收支付宝</b>；侨生博物馆 RM30、汕头街夜市小吃也以现金为主。</div>
+        <div class="note warn"><b>⚠️</b>白天暴晒，9 点前出门、正午躲阴凉；走累随时 Grab，老城区打车很便宜。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- =====================  LANGKAWI  ========================== -->
+<!-- ============================================================ -->
+<section id="langkawi">
+  <div class="cityhd">
+    <span class="flag">🏝️</span>
+    <div>
+      <h2>第二站 · 兰卡威</h2>
+      <div class="meta">10.5 14:05 抵达 — 10.7 14:30 飞吉隆坡 · 住珍南海滩 · 两天出海已订</div>
+    </div>
+  </div>
+  <nav class="subnav">
+    <a href="#langkawi-stay" class="langkawi">🏨 住宿</a>
+    <a href="#langkawi-days" class="langkawi">📅 每日详情</a>
+    <a href="#langkawi-notes" class="langkawi">🎫 注意事项</a>
+  </nav>
+
+  <!-- ---- 住宿 ---- -->
+  <div id="langkawi-stay">
+    <div class="sub-t"><span class="ic">🏨</span>住宿</div>
+    <div class="card langkawi">
+      <div class="bd" style="display:block;padding:6px 16px 12px">
+        <div class="stay">
+          <span class="em">🏝️</span>
+          <div>
+            <div class="nm"><span class="place" data-place="Pelangi Beach Resort &amp; Spa Langkawi" data-alt="彩虹度假酒店" data-addr="Pantai Cenang, 07000 Langkawi, Kedah">彩虹度假酒店 · Pelangi Beach Resort</span></div>
+            <div class="ad">Pantai Cenang, 07000 Langkawi · 就在珍南海滩上</div>
+            <div class="tags"><span>10.5–10.7 · 2 晚</span><span>2 间 Lakefront King</span><span>含 4 份早餐</span><span>现场付遗产费 RM40</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub-t"><span class="ic">📏</span>从酒店出发</div>
+    <ul class="route">
+      <li class="start"><span class="tn">🏨 彩虹度假酒店 · 起点</span></li>
+      <li><span class="mv walk">🚶 0 分</span><span class="tn"><span class="place" data-place="Pantai Cenang 珍南海滩">珍南海滩</span><span class="lt2">酒店门口</span></span></li>
+      <li><span class="mv walk">🚶 5 分</span><span class="tn"><span class="place" data-place="真浪大家乐海鲜餐馆 珍南 Happy Happy Cenang Seafood">真浪大家乐</span><span class="lt2">平价海鲜大排档</span></span></li>
+      <li><span class="mv car">🚗 6 分</span><span class="tn"><span class="place" data-place="真浪花园海鲜餐厅 Pantai Tengah Langkawi">真浪花园海鲜</span><span class="lt2">10.5 晚餐 · 奶油老虎虾</span></span></li>
+      <li><span class="mv car">🚗 8 分</span><span class="tn"><span class="place" data-place="Hidden Langkawi Pantai Tengah">Hidden Langkawi</span><span class="lt2">10.5 火舞 · 约 20:00</span></span></li>
+      <li><span class="mv car">🚗 15 分</span><span class="tn"><span class="place" data-place="Langkawi International Airport" data-alt="兰卡威机场">兰卡威机场</span></span></li>
+      <li><span class="mv car">🚗 30 分</span><span class="tn"><span class="place" data-place="Jetty Point Kuah Langkawi 瓜镇游艇码头">瓜镇游艇码头</span><span class="lt2">10.6 跳岛 + 落日巡游</span></span></li>
+      <li><span class="mv car">🚗 40 分</span><span class="tn"><span class="place" data-place="Kilim Geoforest Park Jetty Langkawi">Kilim 红树林码头</span><span class="lt2">10.7 生态游 09:00</span></span></li>
+    </ul>
+    <div class="note warn"><b>⚠️</b>两个码头在岛的两头：<b>瓜镇</b>在东南（10.6 跳岛+巡游在这出发，🚗 30 分）、<b>Kilim</b>在东北（10.7 红树林，🚗 40 分）。都从珍南出发，去程 30–40 分。</div>
+  </div>
+
+  <!-- ---- 每日详情 ---- -->
+  <div id="langkawi-days">
+    <div class="sub-t"><span class="ic">📅</span>每日详情</div>
+    <div class="card langkawi">
+      <div class="hd" data-toggle>
+        <span class="tag" style="background:var(--langkawi)">D3</span>
+        <div><div class="t">10.5 周一 · 抵达 + 火舞表演</div><div class="s">落地 → 入住 → 门口沙滩 → 海鲜晚餐 → Hidden Langkawi 看火舞</div></div>
+        <span class="chev">▾</span>
+      </div>
+      <div class="bd">
+        <div class="row"><div class="tm">14:05</div><div class="body"><div class="tagline">🛬 抵达兰卡威（AK6242）</div><div class="desc">🚗 15 分到彩虹度假酒店，15:15 安顿好。</div></div></div>
+        <div class="row"><div class="tm">16:00</div><div class="body"><div class="tagline">🏖️ 珍南海滩（酒店门口）</div><div class="desc">行李一放就能下海，🚶 0 分。落地第一天不排要坐车的项目。</div></div></div>
+        <div class="row"><div class="tm">17:30</div><div class="body"><div class="tagline">🦐 晚餐：真浪花园海鲜（中央海滩）</div><div class="desc">招牌<b>奶油老虎虾</b>、黑胡椒蟹、冬阴功。先去看海鲜问价再点，人多上菜慢，<b>17:30 到能避开高峰</b>。🚗 6 分。</div></div></div>
+        <div class="row"><div class="tm">18:45</div><div class="body"><div class="tagline">🌇 移步 Hidden Langkawi 占位</div><div class="desc">同一片区，🚗 8 分（沿海滩走约 25 分）。<b>19:00 起有 live band</b>，二楼露台或沙滩第一排看表演最好。</div></div></div>
+        <div class="row"><div class="tm">20:00</div><div class="body"><div class="tagline">🔥 火舞表演 <span style="color:#fff;background:var(--langkawi);font-size:12px;padding:2px 8px;border-radius:6px">今晚主角</span></div><div class="desc">免费看，约 1 小时，天气不好会取消。<b>重点是气氛，不是吃饭</b>——晚餐已经吃过了，这里点杯饮料或小食就行。</div></div></div>
+        <div class="row"><div class="tm">21:15</div><div class="body"><div class="tagline">🚗 回酒店</div><div class="desc">🚗 8 分。明天 09:00 就要出港，早点休息。</div></div></div>
+        <div class="note tip"><b>要提前做的</b>Hidden Langkawi 建议<b>先订位</b>，前排/露台位可能有最低消费（约 200 马币起）。如果没订到好位置，就点杯东西站沙滩上看，火舞在沙滩上表演，站哪都看得见。</div>
+        <div class="dmap" data-stops="兰卡威机场~Langkawi International Airport|彩虹度假酒店~Pelangi Beach Resort Langkawi|珍南海滩~Pantai Cenang|真浪花园海鲜~真浪花园海鲜餐厅 Pantai Tengah Langkawi|Hidden Langkawi~Hidden Langkawi Pantai Tengah"></div>
+      </div>
+    </div>
+
+    <div class="card langkawi">
+      <div class="hd" data-toggle>
+        <span class="tag" style="background:var(--langkawi)">D4</span>
+        <div><div class="t">10.6 周二 · 跳岛 + 落日巡游（全天出海）</div><div class="s">09:00 瓜镇码头出发 → 20:00 回码头 · 已订</div></div>
+        <span class="chev">▾</span>
+      </div>
+      <div class="bd">
+        <div class="row"><div class="tm">08:15</div><div class="body"><div class="tagline">🚗 酒店出发 → 瓜镇游艇码头</div><div class="desc">🚗 30 分。<b>带接送套餐的话，接人时间以司导前一天通知为准</b>——10.5 晚上记得确认。</div></div></div>
+        <div class="row"><div class="tm">09:00</div><div class="body"><div class="tagline">⛵ 瓜镇游艇码头集合出发</div><div class="desc">自助行程的客人请准时到达，船不等。</div></div></div>
+        <div class="row"><div class="tm">09:15</div><div class="body"><div class="tagline">🏝️ 湿米岛（约 1 小时）</div><div class="desc">简单浮潜（提供面具和救生衣）、游泳、沙滩晒太阳。可自费玩摩托艇、香蕉船。</div></div></div>
+        <div class="row"><div class="tm">10:45</div><div class="body"><div class="tagline">🦅 海上喂老鹰</div><div class="desc">船停在海面看群鹰俯冲掠食。</div></div></div>
+        <div class="row"><div class="tm">11:00</div><div class="body"><div class="tagline">🎣 海钓 1 小时（目标野生石斑）</div><div class="desc">给中午的烧烤加料。船上备竿，不用自带装备。</div></div></div>
+        <div class="row"><div class="tm">12:00</div><div class="body"><div class="tagline">🏞️ 孕妇岛 · 淡水湖游泳</div><div class="desc">5 亿年前的淡水湖。⚠️ <b>上岛费不含：成人 RM20 / 儿童 RM10，现场自付</b>。</div></div></div>
+        <div class="row"><div class="tm">13:30</div><div class="body"><div class="tagline">🍖 白沙岛 BBQ 午餐</div><div class="desc">烧烤 + 饮料啤酒，<b>上午钓的鱼免费加工</b>。</div></div></div>
+        <div class="row"><div class="tm">15:30</div><div class="body"><div class="tagline">⛵ 回瓜镇游艇码头（等下一班船）</div><div class="desc">中间有约 30 分钟空档，在码头附近歇脚、买水。</div></div></div>
+        <div class="row"><div class="tm">16:00</div><div class="body"><div class="tagline">🚢 落日巡游出发</div><div class="desc">游艇绕行看巨鹰广场地标。</div></div></div>
+        <div class="row"><div class="tm">16:20</div><div class="body"><div class="tagline">🕸️ 海上托网 SEA WATER JACUZZI</div><div class="desc">泡在船尾拖网里，算是兰卡威的招牌体验。</div></div></div>
+        <div class="row"><div class="tm">17:00</div><div class="body"><div class="tagline">🏄 水上活动时间</div><div class="desc">站立桨板、跳海、游泳。摩托艇、香蕉船、甜甜圈等自费。</div></div></div>
+        <div class="row"><div class="tm">18:15</div><div class="body"><div class="tagline">🍽️ 船上自助晚餐</div><div class="desc">晚餐就在船上解决，回珍南不用再找吃的。</div></div></div>
+        <div class="row"><div class="tm">19:00</div><div class="body"><div class="tagline">🌅 日落 + 海上 PARTY</div><div class="desc">⚠️ 10 月兰卡威日落约 <b>19:05</b>，天黑得快，船长可能<b>提前返航</b>，不一定到 20:00。</div></div></div>
+        <div class="row"><div class="tm">20:00</div><div class="body"><div class="tagline">⚓ 抵达码头 → 回珍南</div><div class="desc">🚗 30 分回酒店，约 20:30 到。</div></div></div>
+        <div class="note warn"><b>⚠️ 自带</b><b>浴巾、泳衣、防晒、换洗衣物</b>，加一个防水袋装手机。<b>穿防滑凉鞋/溯溪鞋</b>，船上和岛上都是赤脚或湿滑地面。爸爸的<b>晕船药提前 30 分吃</b>——今天在船上待 10 小时。</div>
+        <div class="note tip"><b>浮潜可能取消</b>因天气、潮汐、水位、海浪、水母等安全因素，船家会视情况取消浮潜环节，属正常操作。</div>
+        <div class="dmap" data-stops="瓜镇游艇码头~Jetty Point Kuah Langkawi|彩虹度假酒店~Pelangi Beach Resort Langkawi|湿米岛~Pulau Beras Basah Langkawi|孕妇岛~Pulau Dayang Bunting Langkawi|白沙岛~白沙岛 Langkawi"></div>
+      </div>
+    </div>
+
+    <div class="card langkawi">
+      <div class="hd" data-toggle>
+        <span class="tag" style="background:var(--langkawi)">D5</span>
+        <div><div class="t">10.7 周三 · 红树林 + 返程</div><div class="s">09:00–11:00 生态游 → 14:30 飞吉隆坡 · 已付定金</div></div>
+        <span class="chev">▾</span>
+      </div>
+      <div class="bd">
+        <div class="row"><div class="tm">07:45</div><div class="body"><div class="tagline">🧳 退房、行李寄前台</div><div class="desc">回来直接走，别等到中午再收。早饭在珍南街上买个面包带着。</div></div></div>
+        <div class="row"><div class="tm">08:00</div><div class="body"><div class="tagline">🚗 酒店出发 → Kilim 红树林码头</div><div class="desc">🚗 40 分，在岛东北。08:45 前到码头。</div></div></div>
+        <div class="row"><div class="tm">09:00</div><div class="body"><div class="tagline">🐒 红树林生态游（09:00–11:00）<span style="color:#fff;background:var(--langkawi);font-size:12px;padding:2px 8px;border-radius:6px">已订</span></div><div class="desc">喂猴子、喂老鹰、<b>蝙蝠洞</b>（下船进洞，带手电）、养殖场喂鱼、穿越红树林水道。
+          <ul>
+            <li><b>总价 350 马币/船，已付 150 定金</b>，可坐 10 人——现场找人拼船能把人均压到 35 马币。</li>
+            <li>蝙蝠洞门票约 <b>RM2/人</b> 自付，手电筒租金另算。</li>
+            <li>整趟以坐船为主、走路少，对爸妈最友好。</li>
+          </ul></div></div></div>
+        <div class="row"><div class="tm">11:00</div><div class="body"><div class="tagline">🚗 回酒店取行李 → 兰卡威机场</div><div class="desc">到酒店约 11:45，🚗 再 15 分到机场，<b>12:15 到</b>。机场很小，够用。</div></div></div>
+        <div class="note warn"><b>⚠️ 今天在赶飞机</b>红树林 11:00 结束，之后要「回酒店取行李 → 机场 → 14:30 起飞」，中间没有余量。<b>出发前就跟船家说好 10:45 前靠岸</b>；如果可以，<b>行李早上装车一起带去码头</b>，省掉回酒店那一趟。</div>
+        <div class="row"><div class="tm">14:30</div><div class="body"><div class="tagline">✈️ 兰卡威 → 吉隆坡（AK6325，14:30–15:35）</div><div class="desc">落地后出关 + 车程约 1 小时 45 分，<b>约 17:20 到丽思卡尔顿</b>，晚上走老城人文线。</div></div></div>
+        <div class="dmap" data-stops="彩虹度假酒店~Pelangi Beach Resort Langkawi|Kilim 红树林码头~Kilim Geoforest Park Jetty Langkawi|兰卡威机场~Langkawi International Airport"></div>
+      </div>
+    </div>
+
+    <div class="sub-t"><span class="ic">🍽️</span>美食</div>
+    <div class="card langkawi">
+      <div class="meal">
+        <div class="mt"><span class="em">🦐</span>D3 晚餐（10.5） <span class="lb" style="background:var(--langkawi)">中央海滩 · 三选一</span></div>
+        <ul class="picks">
+          <li><b>首选 <span class="place" data-place="真浪花园海鲜餐厅 Pantai Tengah Langkawi">真浪花园海鲜</span></b>：岛上最有名的海鲜馆，招牌<b>奶油老虎虾</b>、黑胡椒蟹、冬阴功。先看海鲜问价再点。人均约 ¥166，<b>有人嫌贵、上菜慢</b>，17:30 到能避开高峰。🚗 6 分。</li>
+          <li><b>次选 <span class="place" data-place="卓峰海鲜 ZF Seafood Pantai Tengah Langkawi">卓峰海鲜 ZF Seafood</span></b>：同在中央海滩，口味更合国人，奶油老虎虾好评多。🚗 6 分。</li>
+          <li><b>平价 <span class="place" data-place="真浪大家乐海鲜餐馆 珍南 Happy Happy Cenang Seafood">真浪大家乐</span></b>：珍南海滩的大排档，湿奶油龙虾、砂锅黑虎虾，有中文菜单。没空调，桌面一般。🚶 5 分。</li>
+        </ul>
+        <div class="price">吃完移步 Hidden Langkawi 看 20:00 火舞</div>
+      </div>
+    </div>
+    <div class="card langkawi">
+      <div class="meal">
+        <div class="mt"><span class="em">🔥</span>Hidden Langkawi（10.5 晚） <span class="lb" style="background:var(--langkawi)">看表演为主</span></div>
+        <div><span class="place" data-place="Hidden Langkawi Pantai Tengah">Hidden Langkawi</span> — 中央海滩上的沙滩餐厅，日落视野好，<b>19:00 起 live band，20:00 左右火舞</b>。</div>
+        <ul class="picks">
+          <li><b>建议不在这里吃正餐</b>：菜单偏西式，评价参差，人均约 ¥100。到这里就点饮料或一份小食。</li>
+          <li>海鲜拼盘、汉堡、披萨是点得最多的；招牌鸡尾酒 Hidden Sunset。</li>
+          <li>二楼露台和沙滩第一排看表演最好，<b>要提前订位</b>，前排可能有最低消费。</li>
+        </ul>
+        <div class="price">火舞免费看；天气不好会取消</div>
+      </div>
+    </div>
+    <div class="card langkawi">
+      <div class="meal">
+        <div class="mt"><span class="em">🍖</span>D4 / D5 两天的饭 <span class="lb" style="background:var(--langkawi)">都在套餐里</span></div>
+        <ul class="picks">
+          <li><b>10.6</b>：白沙岛 BBQ 午餐 + 船上自助晚餐，<b>全天不用另外找吃的</b>。</li>
+          <li><b>10.7</b>：红树林 11:00 结束，珍南街上吃个早午餐再走，或到机场解决。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ---- 注意事项 ---- -->
+  <div id="langkawi-notes">
+    <div class="sub-t"><span class="ic">🎫</span>注意事项 · 交通与购票</div>
+    <div class="chips">
+      <span class="ch">🚗 无公共交通，全程 <span class="place" data-place="Grab">Grab</span></span>
+      <span class="ch">🚫 <b>不租车</b>（中国驾照在马来开不了，见下）</span>
+    </div>
+    <div class="note warn"><b>⚠️</b>中国驾照在马来西亚需要<b>国际驾照 IDP 或认可翻译件，而中国不签发 IDP</b>——<b>租车这条路走不通</b>，全程用 Grab。4 人叫一辆车刚好。</div>
+
+    <div class="sub-t"><span class="ic">📋</span>已订 / 要确认</div>
+    <div class="card langkawi">
+      <div class="bd" style="display:block;padding:14px 16px">
+        <div class="kv"><b>10.6 跳岛+巡游</b>已订，09:00 瓜镇游艇码头集合、20:00 回码头。含接送的话<b>接人时间以司导前一天通知为准</b>，10.5 睡前确认一次。孕妇岛<b>上岛费 RM20/人 不含</b>，现场自付。套票里含 <b>1 小时海钓</b>（目标石斑，船上备竿）。</div>
+        <div class="kv"><b>10.7 红树林</b>已订，09:00–11:00 Kilim 码头，<b>总价 RM350/船，已付 RM150 定金</b>，可坐 10 人。现场找人拼船能摊薄。蝙蝠洞门票约 RM2/人 自付。</div>
+        <div class="kv"><b>10.5 火舞</b>Hidden Langkawi 建议提前订位，前排可能有最低消费（约 RM200）。订不到就站沙滩看。</div>
+      </div>
+    </div>
+
+    <div class="sub-t"><span class="ic">🎒</span>两天出海要带的东西</div>
+    <div class="card langkawi">
+      <div class="bd" style="display:block;padding:14px 16px">
+        <div class="kv"><b>必带</b><b>浴巾、泳衣、防晒霜、换洗衣物</b>，加一个防水袋装手机和房卡。</div>
+        <div class="kv"><b>鞋</b>防滑凉鞋或溯溪鞋。船上、岛上多是赤脚或湿滑地面，运动鞋反而累赘。</div>
+        <div class="kv"><b>晕船</b>爸爸上船前 <b>30 分钟</b>吃药。10.6 全程在船上 10 小时，是这趟最久的一天。</div>
+        <div class="kv"><b>现金</b>孕妇岛上岛费、蝙蝠洞门票、码头买水都只收现金，备些零钱。</div>
+        <div class="kv"><b>不能带</b>喂猴子别自带食物，有些船家明令禁止投喂，听船长安排。</div>
+      </div>
+    </div>
+
+    <div class="card langkawi">
+      <div class="bd" style="display:block;padding:14px 16px">
+        <div class="note warn"><b>⚠️ 10 月是雨季</b>出发前一天再看一次天气。风浪大时船家会取消浮潜、或提前返航，属正常操作。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- =====================  KUALA LUMPUR  ====================== -->
+<!-- ============================================================ -->
+<section id="kl">
+  <div class="cityhd">
+    <span class="flag">🏙️</span>
+    <div>
+      <h2>第三站 · 吉隆坡</h2>
+      <div class="meta">10.7 15:35 抵达 — 10.9 14:25 飞新加坡 · 住武吉免登/双子塔</div>
+    </div>
+  </div>
+  <nav class="subnav">
+    <a href="#kl-stay" class="kl">🏨 住宿</a>
+    <a href="#kl-days" class="kl">📅 每日详情</a>
+    <a href="#kl-notes" class="kl">🎫 注意事项</a>
+  </nav>
+
+  <!-- ---- 住宿 ---- -->
+  <div id="kl-stay">
+    <div class="sub-t"><span class="ic">🏨</span>住宿</div>
+    <div class="card kl">
+      <div class="bd" style="display:block;padding:6px 16px 12px">
+        <div class="stay">
+          <span class="em">🏙️</span>
+          <div>
+            <div class="nm"><span class="place" data-place="The Ritz-Carlton Kuala Lumpur" data-alt="丽思卡尔顿" data-addr="168 Jalan Imbi, Bukit Bintang, 55100 Kuala Lumpur">丽思卡尔顿 · The Ritz-Carlton KL</span></div>
+            <div class="ad">168 Jalan Imbi, Bukit Bintang · 武吉免登</div>
+            <div class="tags"><span>10.7–10.9 · 2 晚</span><span>2 间 Deluxe King</span><span>含早餐</span><span>现场付旅游税 ¥66.52</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub-t"><span class="ic">📏</span>从酒店出发</div>
+    <ul class="route">
+      <li class="start"><span class="tn">🏨 丽思卡尔顿 · 起点</span></li>
+      <li><span class="mv walk">🚶 5 分</span><span class="tn"><span class="place" data-place="Pavilion Kuala Lumpur 柏威年">柏威年 Pavilion</span><span class="lt2">8 楼 Henna 手绘</span></span></li>
+      <li><span class="mv walk">🚶 3 分</span><span class="tn"><span class="place" data-place="McDonald's Bukit Bintang Crossing Kuala Lumpur">麦当劳十字路口</span></span></li>
+      <li><span class="mv walk">🚶 8 分</span><span class="tn"><span class="place" data-place="Bukit Bintang Pedestrian Street Kuala Lumpur">武吉免登步行街</span></span></li>
+      <li><span class="mv walk">🚶 9 分</span><span class="tn"><span class="place" data-place="Jalan Alor 阿罗街">阿罗街夜市</span></span></li>
+      <li><span class="mv car">🚗 10 分</span><span class="tn"><span class="place" data-place="Lot 10 Hutong Food Court Kuala Lumpur">十号胡同 Lot 10</span><span class="lt2">约 3 km，步行要 37 分，别走</span></span></li>
+      <li><span class="mv car">🚗 10 分</span><span class="tn"><span class="place" data-place="Petronas Twin Towers 双子塔 KLCC">双子塔 KLCC</span><span class="lt2">夜景机位</span></span></li>
+      <li><span class="mv car">🚗 10 分</span><span class="tn"><span class="place" data-place="Menara Kuala Lumpur Tower 吉隆坡塔">吉隆坡塔</span></span></li>
+      <li><span class="mv car">🚗 10 分</span><span class="tn"><span class="place" data-place="Merdeka Square 独立广场">独立广场 / 占美清真寺 / 鬼仔巷</span><span class="lt2">同一片老城</span></span></li>
+      <li><span class="mv car">🚗 10 分</span><span class="tn"><span class="place" data-place="Petaling Street 茨厂街 Kuala Lumpur">茨厂街 / 中央艺术坊</span></span></li>
+      <li><span class="mv car">🚗 12 分</span><span class="tn"><span class="place" data-place="Chow Kit Market Kuala Lumpur">秋杰巴刹</span><span class="lt2">只开上午</span></span></li>
+      <li><span class="mv car">🚗 30 分</span><span class="tn"><span class="place" data-place="Batu Caves 黑风洞">黑风洞</span></span></li>
+      <li><span class="mv car">🚗 60 分</span><span class="tn"><span class="place" data-place="klia2 Kuala Lumpur International Airport 2">klia2</span></span></li>
+    </ul>
+    <div class="note tip"><b>💡</b>10.8 最晒的 <b>14:30–17:00</b> 全泡在<b>柏威年 → 麦当劳十字路口 → 武吉免登步行街</b>这一圈，互相步行 10 分内，晒不到也淋不到，累了随时回房。</div>
+  </div>
+
+  <!-- ---- 每日详情 ---- -->
+  <div id="kl-days">
+    <div class="sub-t"><span class="ic">📅</span>每日详情</div>
+    <div class="card kl">
+      <div class="hd" data-toggle>
+        <span class="tag" style="background:var(--kl)">D5</span>
+        <div><div class="t">10.7 周三 · 抵达 + 茨厂街晚饭</div><div class="s">落地 → 酒店 → 茨厂街 → 中央艺术坊</div></div>
+        <span class="chev">▾</span>
+      </div>
+      <div class="bd">
+        <div class="row"><div class="tm">15:35</div><div class="body"><div class="tagline">🛬 抵达吉隆坡（AK6325）</div><div class="desc">落在 <b>klia2</b>，出关取行李约 45 分；→ 市区 🚗 约 60 分。<b>约 17:20 到丽思卡尔顿</b>，放下行李歇一会儿。</div></div></div>
+        <div class="row"><div class="tm">18:00</div><div class="body"><div class="tagline">🍜 晚餐：茨厂街（🚗 10 分）</div><div class="desc">大排档一条街：炒粿条、瓦煲鸡饭、云吞面，人均 <b>RM20–30</b>。落地日不折腾，这两个点挨着走完就回。</div></div></div>
+        <div class="row"><div class="tm">19:15</div><div class="body"><div class="tagline">🛍️ 中央艺术坊（🚶 10 分）</div><div class="desc">开到 21:00。一层是蜡染、银器、编织的本地手作摊；<b>Ainna Artwork 蜡染画体验 RM15–30/幅、约 30 分</b>，店员带着做，画完能干透带走。有冷气，四个人一起动手刚好。</div></div></div>
+        <div class="row"><div class="tm">20:45</div><div class="body"><div class="tagline">🚗 回酒店</div><div class="desc">约 10 分。<b>老城那一片（独立广场 / 占美清真寺 / 鬼仔巷）串到明天上午走</b>——都在旧火车站旁边，顺路。</div></div></div>
+        <div class="note tip"><b>💡</b>落地日只排两个点，是刻意的：今天之前连着 <b>10.6 全天出海</b>和 <b>10.7 上午红树林</b>，晚上再跑六个点会崩。</div>
+        <div class="dmap" data-stops="klia2~klia2 Kuala Lumpur International Airport 2|丽思卡尔顿~The Ritz-Carlton Kuala Lumpur|茨厂街~Petaling Street Kuala Lumpur|中央艺术坊~Central Market Kuala Lumpur"></div>
+      </div>
+    </div>
+
+    <div class="card kl">
+      <div class="hd" data-toggle>
+        <span class="tag" style="background:var(--kl)">D6</span>
+        <div><div class="t">10.8 周四 · 吉隆坡一整天</div><div class="s">黑风洞 → 旧火车站 → 老城三景 → 午休 → 柏威年/Henna → 吉隆坡塔 → 亚罗街 → 双子塔夜景</div></div>
+        <span class="chev">▾</span>
+      </div>
+      <div class="bd">
+        <div class="row"><div class="tm">09:00</div><div class="body"><div class="tagline">🛕 黑风洞 Batu Caves（🚗 30 分）</div><div class="desc">早去凉快。<b>274 级彩色台阶</b> + 42 米高金色印度神像。<b>爸妈膝盖不好就在底下拍，别硬爬。</b>猴子多，<b>手上别拿食物和水</b>。约 1 小时。</div></div></div>
+        <div class="row"><div class="tm">10:40</div><div class="body"><div class="tagline">🚉 旧火车站（🚗 25 分）</div><div class="desc">1910 年摩尔式白色建筑，洋葱顶 + 拱廊，像座童话宫殿。有火车从"城门"开出的那一瞬最有味道；正前方<b>天桥是全景机位</b>。免费，20 分。</div></div></div>
+        <div class="row"><div class="tm">11:05</div><div class="body"><div class="tagline">🏢 马来铁路行政大楼（🚶 5 分）</div><div class="desc">同一位建筑师的姊妹楼，<b>只拍外观</b>。</div></div></div>
+        <div class="row"><div class="tm">11:20</div><div class="body"><div class="tagline">🇲🇾 独立广场（🚶 8 分）</div><div class="desc">大草坪、世界最高旗杆、<span class="place" data-place="Sultan Abdul Samad Building Kuala Lumpur">苏丹阿都沙末大厦</span>的摩尔式圆顶，"I ♥ KL" 打卡牌也在这。<b>免费</b>，20 分。</div></div></div>
+        <div class="row"><div class="tm">11:45</div><div class="body"><div class="tagline">🕌 占美清真寺（🚶 5 分）</div><div class="desc">红砖白墙 + 棕榈，两河交汇处带水汽，拍照很出片。<b>不进去、只拍外观也完全可以。</b></div></div></div>
+        <div class="row"><div class="tm">12:05</div><div class="body"><div class="tagline">🏮 鬼仔巷（🚶 8 分）</div><div class="desc">华人下南洋的老聚落，1960 年代南洋生活壁画，复古色调，<b>免费</b>，10–15 分。</div></div></div>
+        <div class="row"><div class="tm">12:30</div><div class="body"><div class="tagline">🚗 回酒店：午餐 + 午休</div><div class="desc">🚗 10 分，<b>歇到 14:15</b>。上午走了 4 个点，这段必须留。</div></div></div>
+        <div class="row"><div class="tm">14:30</div><div class="body"><div class="tagline">🛍️ 柏威年 + Henna 手绘（🚶 5 分）</div><div class="desc">8 楼有<b>指甲花（Henna）身体彩绘</b>：天然植物染料、马来传统纹样，<b>RM10–30、坐着画约 15 分</b>。之后随便逛，品牌很全；负一层有本地品牌和伴手礼（Beryl's 巧克力、Fipper 拖鞋）。约 1.5 小时。</div></div></div>
+        <div class="row"><div class="tm">16:00</div><div class="body"><div class="tagline">🍟 麦当劳十字路口（🚶 10 分）</div><div class="desc">The Pavilion Crossing，薯条涂装的斑马线 + 涂鸦墙。<b>路过顺手拍，不用单独留时间。</b></div></div></div>
+        <div class="row"><div class="tm">16:20</div><div class="body"><div class="tagline">🚶 武吉免登商圈（🚶 8 分）</div><div class="desc">步行街随便逛，感受吉隆坡最热闹的一片；<b>累了随时折回酒店</b>。之后回房歇脚换衣。</div></div></div>
+        <div class="row"><div class="tm">17:30</div><div class="body"><div class="tagline">🗼 吉隆坡塔（🚗 10 分）</div><div class="desc">421 米，360° 看城，<b>比双子塔人少得多</b>。门票约 <b>RM90</b>，电梯直达观景台，<b>不用爬楼</b>；待在上面正好赶上 <b>19:00 前后日落</b>。</div></div></div>
+        <div class="row"><div class="tm">19:00</div><div class="body"><div class="tagline">🍢 亚罗街夜市（🚗 5 分）</div><div class="desc"><span class="place" data-place="Wong Ah Wah 黄亚华" data-addr="Lot 1 Jalan Alor, Bukit Bintang">黄亚华沙爹</span> + 烤鸡翅 + 榴莲煎蕊，快速扫一圈。</div></div></div>
+        <div class="row"><div class="tm">20:15</div><div class="body"><div class="tagline">🌃 双子塔夜景（🚗 10 分）<span style="color:#fff;background:var(--kl);font-size:12px;padding:2px 8px;border-radius:6px">还有力气就去</span></div><div class="desc">到 <span class="place" data-place="Menara Public Bank Jalan Ampang Kuala Lumpur">Menara Public Bank 那个点位</span>拍整座双塔倒影，20–30 分拍完。不想动就直接从亚罗街 🚶 15 分回酒店。</div></div></div>
+        <div class="note warn"><b>⚠️ 今天是全程最满的一天</b>（09:00 出门 → 21:00 回）。午休那 1 小时 45 分是硬性的，别压缩。<b>真扛不住就砍晚上的双子塔夜景</b>，吉隆坡塔上已经看过全景了。</div>
+        <div class="dmap" data-stops="丽思卡尔顿~The Ritz-Carlton Kuala Lumpur|黑风洞~Batu Caves|旧火车站~Kuala Lumpur Railway Station|马来铁路行政大楼~Malayan Railway Administration Building Kuala Lumpur|独立广场~Merdeka Square Kuala Lumpur|占美清真寺~Masjid Jamek Kuala Lumpur|鬼仔巷~Kwai Chai Hong Kuala Lumpur|柏威年~Pavilion Kuala Lumpur|麦当劳十字路口~McDonald's Bukit Bintang Crossing Kuala Lumpur|武吉免登~Bukit Bintang Pedestrian Street Kuala Lumpur|吉隆坡塔~Menara Kuala Lumpur Tower|亚罗街夜市~Jalan Alor|双子塔夜景~Menara Public Bank Jalan Ampang Kuala Lumpur"></div>
+      </div>
+    </div>
+
+    <div class="card kl">
+      <div class="hd" data-toggle>
+        <span class="tag" style="background:var(--kl)">D7</span>
+        <div><div class="t">10.9 周五 · 巴刹 + 返程 → 新加坡</div><div class="s">秋杰巴刹 → 十号胡同 → 退房 → 飞新加坡（今晚 F1）</div></div>
+        <span class="chev">▾</span>
+      </div>
+      <div class="bd">
+        <div class="row"><div class="tm">09:00</div><div class="body"><div class="tagline">🧺 秋杰巴刹 Chow Kit（🚗 12 分）</div><div class="desc">吉隆坡<b>最地道的传统菜市场</b>：热带水果、香料、海鲜直接摆到街边。<b>控在 40 分钟以内</b>，今天要赶飞机。<b>免门票，只收现金。</b></div></div></div>
+        <div class="row"><div class="tm">10:00</div><div class="body"><div class="tagline">🍜 午餐：十号胡同 Lot 10（🚗 10 分 / 🚝 单轨 10–15 分）</div><div class="desc"><b>⚠️ 秋杰巴刹到 Lot 10 约 3 km，步行要 37 分钟，别按走路算</b>——叫 Grab 10 分钟，或坐单轨到 Bukit Bintang 站。金莲记福建肉面、何荣记云吞面、椰浆饭、拉茶——<b>老字号一站式吃齐</b>，人均 RM30–50。<b>11:00 前吃完，今天要赶飞机。</b></div></div></div>
+        <div class="row"><div class="tm">11:00</div><div class="body"><div class="tagline">🧳 回酒店退房、取行李</div><div class="desc"><b>11:15 前必须上车</b>——这是今天唯一不能松的时间点。</div></div></div>
+        <div class="row"><div class="tm">14:25</div><div class="body"><div class="tagline">✈️ 吉隆坡 → 新加坡（AK715，14:25–15:40）</div><div class="desc">🚗 约 60 分，<b>12:15 前后到 klia2</b>。<b>国际航班值机和托运起飞前 60 分钟关闭（13:25）</b>，所以要留够——路上堵一小时就危险了。<b>今晚 18:00 就要去 F1 赛场</b>，完整时间线见「🏁 F1」。</div></div></div>
+        <div class="dmap" data-stops="秋杰巴刹~Chow Kit Market Kuala Lumpur|十号胡同~Lot 10 Hutong Food Court Kuala Lumpur|丽思卡尔顿~The Ritz-Carlton Kuala Lumpur|klia2~klia2 Kuala Lumpur International Airport 2|樟宜机场~Changi Airport Singapore"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ---- 注意事项 ---- -->
+  <div id="kl-notes">
+    <div class="sub-t"><span class="ic">🎫</span>注意事项 · 交通与购票</div>
+    <div class="chips">
+      <span class="ch">🚗 全程 <span class="place" data-place="Grab">Grab</span>，价格透明</span>
+      <span class="ch">🚫 不租车</span>
+    </div>
+    <div class="card kl">
+      <div class="bd" style="display:block;padding:14px 16px">
+        <div class="note tip"><b>要买</b>吉隆坡塔观景台门票约 RM90，现场或官网都行，电梯直达不用爬；蜡染画体验、Henna 手绘现场付现金。</div>
+        <div class="note"><b>免费</b>独立广场、占美清真寺（外观）、鬼仔巷、茨厂街、中央艺术坊、旧火车站都不用预约或买票。</div>
+        <div class="note warn"><b>💵 带现金</b><b>黑风洞</b>（停车、捐功德）和<b>秋杰巴刹</b>只收现金，出门前先取够马币。</div>
+        <div class="note warn"><b>⚠️ 10.9 赶飞机</b>去 klia2 走高速，<b>早晚高峰堵得厉害</b>。国际段值机/托运<b>起飞前 60 分钟关闭</b>，攻略把上车时间卡在 <b>11:15</b>，别往后拖。</div>
+        <div class="note warn"><b>⚠️ 10.8 最满</b>09:00 出门到 21:00 回，<b>中午那 1 小时 45 分午休别压缩</b>。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- =====================  DURIAN  ============================ -->
+<!-- ============================================================ -->
+<section id="durian">
+  <div class="cityhd">
+    <span class="flag">🥭</span>
+    <div>
+      <h2>专题 · 马来西亚吃榴莲</h2>
+      <div class="meta">全部在马来西亚吃完 · 新加坡境内不能带</div>
+    </div>
+  </div>
+
+  <div class="note warn"><b>季节</b>榴莲旺季 <b>6–8 月</b>，10 月是尾巴：<b>猫山王量少价高</b>，10 月更好吃的是<b>黑刺、坤玉王、D24</b>。</div>
+
+  <div class="sub-t"><span class="ic">📍</span>这几站顺路吃（按时间）</div>
+  <div class="card durian">
+    <div class="bd" style="display:block;padding:6px 16px 10px">
+      <div class="row"><div class="tm">10.4</div><div class="body"><div class="tagline"><span class="place" data-place="Durian Valley 聚榴堂 George Town Penang" data-addr="George Town, Penang">聚榴堂 · Durian Valley</span></div><div class="desc">槟城 · 12 点左右去，新鲜不用排，就在老城那天的动线上。</div></div></div>
+      <div class="row"><div class="tm">10.8</div><div class="body"><div class="tagline"><span class="place" data-place="Jalan Alor 阿罗街 猫山王榴莲" data-addr="Jalan Alor, Bukit Bintang, Kuala Lumpur">阿罗街夜市 · 猫山王档口 + 榴莲煎蕊</span> <span style="color:#fff;background:var(--durian);font-size:12px;padding:2px 8px;border-radius:6px">主推</span></div><div class="desc">吉隆坡 · 🚶 9 分，10.8 晚间就在这条街上，踩点最方便。游客价偏贵，<b>问清单价再开</b>；配一碗榴莲煎蕊。</div></div></div>
+      <div class="row"><div class="tm">备选</div><div class="body"><div class="tagline"><span class="place" data-place="SS2 Durian Street 榴莲街 Petaling Jaya" data-addr="SS2, Petaling Jaya, Selangor">SS2 榴莲街（八打灵再也）</span></div><div class="desc">品种最全的榴莲一条街，但 🚗 单程 25–30 分，时间紧就跳过。</div></div></div>
+    </div>
+  </div>
+
+  <div class="sub-t"><span class="ic">🍈</span>品种速查</div>
+  <div class="chips">
+    <span class="ch">👑 <b>猫山王</b>：苦甜带酒香，10 月量少价高</span>
+    <span class="ch">🖤 <b>黑刺</b>：橙红果肉，甜中带苦，比猫山王更稀有</span>
+    <span class="ch">🧡 <b>坤玉王 / 红虾</b>：甜度高，第一次吃最容易接受</span>
+    <span class="ch">💛 <b>D24</b>：经典款、便宜，先尝个味</span>
+  </div>
+  <div class="note tip"><b>怎么买</b>档口<b>按颗或按公斤</b>计价，<b>挑之前先问价</b>，现开现吃。想多尝几个品种就找<b>榴莲自助（buffet，按人头）</b>。配山竹或椰子水降火，别配酒。</div>
+
+  <div class="note red"><b>⚠️ 最重要的一条</b>
+    <br>① 新加坡<b>地铁和巴士严禁携带榴莲</b>，罚款可达 <b>500 新币</b>；多数酒店也不允许带进房间
+    <br>② 榴莲<b>不能带上飞机</b>（托运也不行），马来西亚和新加坡都一样
+    <br>③ 所以：<b>榴莲全部在马来西亚吃完，10.9 飞新加坡之前别再买</b>。最后一个吃榴莲的机会是 <b>10.8 晚的亚罗街夜市</b>。
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- =====================  SINGAPORE  ========================= -->
+<!-- ============================================================ -->
+<section id="singapore">
+  <div class="cityhd">
+    <span class="flag">🇸🇬</span>
+    <div>
+      <h2>第四站 · 新加坡</h2>
+      <div class="meta">10.9 15:40 抵达 — 10.11 14:50 离开 · 住乌节路（约克酒店）</div>
+    </div>
+  </div>
+  <nav class="subnav">
+    <a href="#sg-stay" class="sg">🏨 住宿</a>
+    <a href="#sg-days" class="sg">📅 每日详情</a>
+    <a href="#sg-notes" class="sg">🎫 注意事项</a>
+  </nav>
+
+  <div id="sg-stay">
+    <div class="sub-t"><span class="ic">🏨</span>住宿</div>
+    <div class="card sg"><div class="bd" style="display:block;padding:6px 16px 12px">
+      <div class="stay"><span class="em">🇸🇬</span><div>
+        <div class="nm"><span class="place" data-place="York Hotel Singapore 约克酒店" data-addr="21 Mount Elizabeth, Singapore 228516">约克酒店 · York Hotel</span></div>
+        <div class="ad">21 Mount Elizabeth · 乌节路一带</div>
+        <div class="tags"><span>10.9–10.11 · 2 晚</span><span>2 间 Superior Twin（两张订单各 1 间）</span><span>退房 11:00 前</span><span>在 F1 封路区外</span></div>
+        <div class="ad" style="margin-top:4px">⚠️ 两张订单早餐不一致：<b>Agoda 那间含双人早餐</b>，同程那间写「Meals not included」——出门吃麦士威/亚坤即可。</div>
+      </div></div>
+    </div></div>
+
+    <div class="sub-t"><span class="ic">📏</span>从酒店出发 <span style="font-weight:400;color:var(--muted);font-size:12.5px">🚶步行 · 🚇地铁 · 🚗Grab</span></div>
+    <ul class="route">
+      <li class="start"><span class="tn">🏨 约克酒店 · 起点</span></li>
+      <li><span class="mv walk">🚶 6 分</span><span class="tn"><span class="place" data-place="Orchard Road 乌节路">乌节路商圈</span><span class="lt2">逛街、补伴手礼</span></span></li>
+      <li><span class="mv walk">🚶 12 分</span><span class="tn"><span class="place" data-place="Ya Kun Kaya Toast 亚坤">亚坤咖椰吐司</span><span class="lt2">10.11 返程早餐</span></span></li>
+      <li><span class="mv car">🚗 12 分</span><span class="tn"><span class="place" data-place="Marina Bay Street Circuit Singapore" data-alt="滨海湾赛道">F1 滨海湾赛道</span><span class="lt2">Gate 4/5/6/7</span></span></li>
+      <li><span class="mv">🚇 15 分</span><span class="tn"><span class="place" data-place="Maxwell Food Centre 麦士威熟食中心">麦士威熟食中心</span><span class="lt2">牛车水 · 天天海南鸡饭</span></span></li>
+      <li><span class="mv">🚇 15 分</span><span class="tn"><span class="place" data-place="Fort Canning Park 福康宁公园">福康宁公园</span><span class="lt2">坡缓树荫多</span></span></li>
+      <li><span class="mv">🚇 20 分</span><span class="tn"><span class="place" data-place="Merlion Park 鱼尾狮公园">鱼尾狮公园</span></span></li>
+      <li><span class="mv">🚇 25 分</span><span class="tn"><span class="place" data-place="Gardens by the Bay 滨海湾花园">滨海湾花园 · 超级树</span><span class="lt2">灯光秀 19:45 / 20:45</span></span></li>
+      <li><span class="mv">🚇 40 分</span><span class="tn"><span class="place" data-place="Changi Airport 樟宜机场">樟宜机场</span><span class="lt2">10.9 进 T4 / 10.11 出 T1 · Grab 约 25 分</span></span></li>
+    </ul>
+    <div class="note tip">地铁覆盖极广，<b>地铁 + 步行为主</b>；Visa/Master 信用卡直接刷闸机，不用买交通卡。赶时间、或去完景点太累的时候才叫 Grab。</div>
+  </div>
+
+  <div id="sg-days">
+    <div class="sub-t"><span class="ic">📅</span>每日详情</div>
+    <div class="card sg">
+      <div class="hd" data-toggle>
+        <span class="tag" style="background:var(--sg)">D7</span>
+        <div><div class="t">10.9 周五 · 抵达 + F1</div><div class="s">樟宜 T4 → 约克酒店 → 冲刺排位赛（20:30）+ 林俊杰</div></div>
+        <span class="chev">▾</span>
+      </div>
+      <div class="bd">
+        <div class="row"><div class="tm">15:40</div><div class="body"><div class="tagline">🛬 抵达<b>樟宜 T4</b>（AK715）· 入境 30–40 分钟</div><div class="desc">免签，晚高峰排队久。<b>注意：回程 10.11 从 T1 走，两楼不互通。</b>🚗 <b>17:00</b> 出发 → 约克酒店 20 分，17:30 放下行李。晚饭进赛场再吃。</div></div></div>
+        <div class="row"><div class="tm">18:00</div><div class="body"><div class="tagline">🚪 出发去赛场（Gate 4/5/6/7）</div><div class="desc">🚗 12 分 + 安检排队 15–20 分。<b>入场后不能中途再出来</b>，该带的都带上。</div></div></div>
+        <div class="row"><div class="tm">20:30</div><div class="body"><div class="tagline">🏎️ 冲刺排位赛（20:30–21:14）</div><div class="desc">当晚真正能看到 F1 赛车的环节。爸妈看完这场先撤，你留下看 22:30 林俊杰——完整时间线见「🏁 F1」。</div></div></div>
+        <div class="dmap" data-stops="樟宜机场~Changi Airport 樟宜机场|约克酒店~York Hotel Singapore 约克酒店|滨海湾赛道~Marina Bay Street Circuit Singapore"></div>
+      </div>
+    </div>
+
+    <div class="card sg">
+      <div class="hd" data-toggle>
+        <span class="tag" style="background:var(--sg)">D8</span>
+        <div><div class="t">10.10 周六 · 麦士威 + 滨海湾花园双馆 + 超级树</div><div class="s">牛车水 · 天天海南鸡饭 → 鱼尾狮 → 花穹+云雾林 → 金沙食阁 → 超级树</div></div>
+        <span class="chev">▾</span>
+      </div>
+      <div class="bd">
+        <div class="row"><div class="tm">08:30</div><div class="body"><div class="tagline">☕ 早餐：乌节路一带（酒店步行圈）</div><div class="desc">酒店门口就是乌节路，简单吃点就好——<b>把正餐额度留给中午的天天海南鸡饭</b>。</div></div></div>
+        <div class="row"><div class="tm">09:15</div><div class="body"><div class="tagline">🚇 出发 → 鱼尾狮公园</div><div class="desc">🚇 到 Raffles Place，再步行。</div></div></div>
+        <div class="row"><div class="tm">09:45</div><div class="body"><div class="tagline">🦁 鱼尾狮公园</div><div class="desc">🚶 15 分（沿 South Bridge Rd 直走）。<span class="place" data-place="Merlion Park 鱼尾狮公园" data-addr="1 Fullerton Rd, Singapore 049213">免费</span>，拍完顺滨海湾走一段，再折去牛车水。</div></div></div>
+        <div class="row"><div class="tm">10:45</div><div class="body"><div class="tagline">🐔 早午餐：麦士威熟食中心 · <b>天天海南鸡饭</b></div><div class="desc">鱼尾狮 → 麦士威 🚶 20 分。天天 <b>10:00 才开门</b>，10:45 到刚好赶上头一锅、还不用排长队——<b>这是我们把它挪到中午的原因</b>。顺带尝尝鱼圆面、粥品、咖椰吐司。<b>10.10 是周六，不撞周一场休。</b></div></div></div>
+        <div class="row"><div class="tm">12:15</div><div class="body"><div class="tagline">🛏️ 回酒店午休</div><div class="desc">🚇 回乌节路。<b>歇 2 小时</b>——昨晚 F1 到凌晨，这段是特意留的，别取消。</div></div></div>
+        <div class="row"><div class="tm">15:00</div><div class="body"><div class="tagline">🌺 滨海湾花园 · 花穹 + 云雾林 <span style="color:#fff;background:var(--sg);font-size:12px;padding:2px 8px;border-radius:6px">票已购 · 4 张</span></div><div class="desc">🚇 到 Bayfront。<span class="place" data-place="Gardens by the Bay 滨海湾花园" data-addr="18 Marina Gardens Dr, Singapore 018953">双馆</span>都是<b>室内恒温</b>，长辈友好、避午后雷阵雨。<b>两馆须同一天逛完，中间不可重入</b>；开放 9:00–21:00，最后入场 20:00。留 2.5 小时足够。</div></div></div>
+        <div class="row"><div class="tm">18:15</div><div class="body"><div class="tagline">🍜 晚餐：滨海湾金沙食阁（🚶 15 分）</div><div class="desc">双馆 → Bayfront 金沙，<b>金沙购物中心负一层的食阁</b>，有冷气、选择多、人均 10–15 新币，吃完<b>步行 15 分就能到超级树</b>，不用再倒车。</div></div></div>
+        <div class="row"><div class="tm">19:45</div><div class="body"><div class="tagline">🌳 滨海湾花园 · 超级树灯光秀 <span style="color:#fff;background:var(--sg);font-size:12px;padding:2px 8px;border-radius:6px">今晚主角</span></div><div class="desc"><span class="place" data-place="Gardens by the Bay 滨海湾花园" data-addr="18 Marina Gardens Dr, Singapore 018953">超级树</span>灯光秀 <b>19:45 / 20:45 各一场，免费</b>。提前 15 分到草坪占位，坐着看最舒服。</div></div></div>
+        <div class="row"><div class="tm">20:30</div><div class="body"><div class="tagline">🚇 回酒店</div><div class="desc">看完第一场就走，不赶第二场。Bayfront → 乌节路 🚇 25 分，🚗 20 分。</div></div></div>
+        <div class="note tip"><b>💡</b>想吃<b>老巴刹沙爹街</b>的话注意：那条街 <b>19:00 才开档</b>，和 19:45 的灯光秀正好撞上。只能二选一——去沙爹街就改看 20:45 那场秀，当晚回酒店会晚到 22:00。</div>
+        <div class="dmap" data-stops="约克酒店~York Hotel Singapore 约克酒店|鱼尾狮公园~Merlion Park 鱼尾狮公园|麦士威熟食中心~Maxwell Food Centre 麦士威熟食中心|滨海湾花园花穹云雾林~Gardens by the Bay 滨海湾花园|滨海湾金沙食阁~Rasapura Masters Marina Bay Sands|超级树~Supertree Grove Gardens by the Bay"></div>
+      </div>
+    </div>
+
+    <div class="card sg">
+      <div class="hd" data-toggle>
+        <span class="tag" style="background:var(--sg)">D9</span>
+        <div><div class="t">10.11 周日 · 返程</div><div class="s">亚坤早餐 → 福康宁 → 退房 → 樟宜 T1 · 14:50 MF8704</div></div>
+        <span class="chev">▾</span>
+      </div>
+      <div class="bd">
+        <div class="row"><div class="tm">08:30</div><div class="body"><div class="tagline">🍞 早餐：亚坤咖椰吐司</div><div class="desc">🚶 12 分（乌节路店）。<span class="place" data-place="Ya Kun Kaya Toast 亚坤">咖椰吐司 + 半熟蛋 + 南洋咖啡</span>，10 分钟吃完。</div></div></div>
+        <div class="row"><div class="tm">09:15</div><div class="body"><div class="tagline">🌿 福康宁公园（<b>先逛，再退房</b>）</div><div class="desc">从酒店步行约 18 分 / 🚇 15 分，<span class="place" data-place="Fort Canning Park 福康宁公园">福康宁公园</span>免费免约、坡度缓，逛 45 分钟够。<b>原方案是「退房 → 去公园 → 回来取行李」，多跑一趟；改成退房前先去，省掉折返。</b>不想动了就在乌节路商场吹冷气买伴手礼，直接跳过这站。</div></div></div>
+        <div class="row"><div class="tm">10:15</div><div class="body"><div class="tagline">🧳 回酒店退房（<b>11:00 前必须退</b>）</div><div class="desc">约克酒店两张订单写明 <b>check-out before 11:00</b>。10:35 前办完，别拖。</div></div></div>
+        <div class="row"><div class="tm">10:45</div><div class="body"><div class="tagline">🚗 出发 → 樟宜 <b>T1</b></div><div class="desc">🚗 Grab 约 25 分，🚇 约 40 分。<b>11:30 前后到 T1</b>（比 14:50 起飞早约 3h20m）。办完托运<b>在星耀樟宜 & T1 逛</b>——室内瀑布、免税店，3 小时不嫌多。<br><b>今天 F1 正赛在滨海湾（晚上 20:00），市区部分路段封路</b>，走 ECP/PIE 去机场不受影响，但别在滨海湾一带绕。</div></div></div>
+        <div class="row"><div class="tm">14:50</div><div class="body"><div class="tagline">✈️ <b>MF8704 厦门航空</b> · 樟宜 <b>T1</b> 起飞</div><div class="desc">→ 杭州萧山 <b>T4</b>，20:15 抵达，直飞。樟宜好逛（星耀樟宜室内瀑布），早点到逛完再登机。</div></div></div>
+        <div class="dmap" data-stops="约克酒店~York Hotel Singapore 约克酒店|福康宁公园~Fort Canning Park 福康宁公园|樟宜机场~Changi Airport 樟宜机场"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="sg-notes">
+    <div class="sub-t"><span class="ic">🎫</span>注意事项 · 交通与购票</div>
+    <div class="chips">
+      <span class="ch">🚇 地铁覆盖极广，<b>地铁 + 步行为主</b></span>
+      <span class="ch">💳 <span class="place" data-place="Visa">Visa/Master 信用卡</span>直接刷闸机，不用买交通卡</span>
+      <span class="ch">🚗 赶时间或太累时用 <span class="place" data-place="Grab">Grab</span></span>
+    </div>
+    <div class="card sg"><div class="bd" style="display:block;padding:14px 16px">
+      <div class="kv"><b>F1 门票</b>已购，入场凭电子票二维码，<b>截图存离线</b>；安检不看液体但禁大包</div>
+      <div class="kv"><b>封路</b>10.9–10.11 滨海湾一带封路，Grab 只能到外围，<b>下车后要走一段</b>；约克酒店在封路区外，晚上回得来</div>
+      <div class="kv"><b>SGAC</b>抵达前 3 天内在线填，填完存截图（行前清单已列）</div>
+      <div class="kv"><b>预约</b>新加坡这三天没有必须提前预约的景点，都是免费开放或现场买票</div>
+      <div class="kv"><b>榴莲</b>地铁和巴士<b>禁止携带榴莲</b>，罚款 S$500（详见「🥭 榴莲」）</div>
+    </div></div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- =====================  F1  ================================ -->
+<!-- ============================================================ -->
+<section id="f1">
+  <div class="cityhd">
+    <span class="flag">🏁</span>
+    <div>
+      <h2>新加坡 F1 · 10.9 周五</h2>
+      <div class="meta">滨海湾街道赛 · Zone 4（Gates 4/5/6/7）· 只看这一晚</div>
+    </div>
+  </div>
+  <div class="chips" style="margin-top:10px">
+    <span class="ch">🎫 已购 Zone 4 门票</span>
+    <span class="ch">🚪 Gate 4/5/6/7</span>
+    <span class="ch">⏱️ 15:40 落地 → 00:00+ 散场</span>
+    <span class="ch">👨‍👩 爸妈 21:15 先撤</span>
+  </div>
+  <div class="note warn"><b>关键</b>周五练习赛 16:30–17:30 <b>赶不上</b>（15:40 才落地）。当晚能看到赛车的是 <b>20:30–21:14 冲刺排位赛</b>；爸妈看完这场撤，你留下看 <b>22:30 林俊杰</b>。F1 只看周五这一晚。</div>
+
+  <div class="sub-t"><span class="ic">🕐</span>当晚时间线</div>
+  <div class="card f1">
+    <div class="bd" style="display:block;padding:6px 16px 14px">
+      <div class="row"><div class="tm">15:40</div><div class="body"><div class="tagline">🛬 樟宜落地 · 入境</div><div class="desc">免签，晚高峰排队 <b>30–40 分</b> + 取行李，17:00 结束。</div></div></div>
+      <div class="row"><div class="tm">17:00</div><div class="body"><div class="tagline">🚗 去约克酒店</div><div class="desc">20 分。17:30–18:00 check in 放行李。<b>晚饭进赛场再吃。</b></div></div></div>
+      <div class="row"><div class="tm">18:00</div><div class="body"><div class="tagline">🚪 去赛场 · Gate 4/5/6/7</div><div class="desc">🚗 10–15 分 + 安检 15–20 分，18:30 入场。</div></div></div>
+      <div class="row"><div class="tm">18:30</div><div class="body"><div class="tagline">🍜 进场吃饭 + 逛市集</div><div class="desc">Zone 4 餐饮市集。19:30 演出时段人少，先吃饱再逛。</div></div></div>
+      <div class="row"><div class="tm">19:30</div><div class="body"><div class="tagline">🏁 挪到赛道边找位置</div><div class="desc">选<b>弯道</b>（T11/T12 附近），赛车减速过弯看得清。不用抢前排，站着看就行。</div></div></div>
+      <div class="row"><div class="tm">20:30</div><div class="body"><div class="tagline">🏎️ 冲刺排位赛（20:30–21:14）</div><div class="desc">44 分钟，<b>当晚真正能看到 F1 赛车的环节</b>。夜间街道赛，弯多超车多。</div></div></div>
+      <div class="row"><div class="tm">21:14</div><div class="body"><div class="tagline">👨‍👩 爸妈从 Gate 撤</div><div class="desc">🚗 15 分，21:40 到酒店。见下方撤退方案。</div></div></div>
+      <div class="row"><div class="tm">22:30</div><div class="body"><div class="tagline">🎵 林俊杰（22:30–23:45）</div><div class="desc">21:14 移步 <span class="place" data-place="Padang Stage Singapore">Padang Stage</span> 草坪区坐下占位。中区看大屏 + 听现场够用。</div></div></div>
+      <div class="row"><div class="tm">00:00</div><div class="body"><div class="tagline">🚶 散场回酒店</div><div class="desc">跟人流走，Gate 4/5/6/7 都能出。🚇 <span class="place" data-place="Raffles Place MRT" data-alt="莱佛士坊">莱佛士坊</span>，或 🚗 十几分钟。</div></div></div>
+      <div class="dmap" data-stops="约克酒店~York Hotel Singapore 约克酒店|滨海湾赛道 Gate 5~Marina Bay Street Circuit Gate 5|Padang Stage~Padang Stage Singapore"></div>
+    </div>
+  </div>
+
+  <div class="sub-t"><span class="ic">👨‍👩</span>爸妈分批撤退方案</div>
+  <div class="card f1">
+    <div class="bd" style="display:block;padding:10px 16px 14px">
+      <div class="note tip"><b>终点</b>爸妈看到 <b>21:14 冲刺排位赛结束</b>就撤：15:40 落地 → 21:15 离场，全程约 6 小时，对 65 岁不算赶。</div>
+      <div class="note"><b>🚗</b>21:15 出 Gate 打 Grab 回约克酒店，15 分，21:40 到家。</div>
+      <div class="note red"><b>📱</b>三个实操点：
+        <br>① 入场前说好"<b>看完赛车就撤，不用等你</b>"
+        <br>② 爸妈随身带 <b>护照 + 酒店地址</b>；提前帮他们叫好车、设好上下车点
+        <br>③ 约好报平安（你散场到酒店发条消息）
+      </div>
+      <div class="note"><b>🎫</b>门票<b>不记名、可独立进出</b>，爸妈随时能从 Gate 出来，不用你同行。</div>
+    </div>
+  </div>
+
+  <div class="sub-t"><span class="ic">⚠️</span>入场提醒</div>
+  <div class="chips">
+    <span class="ch">🍜 晚饭<b>务必入场后</b>解决</span>
+    <span class="ch">💰 场内餐饮人均 15–25 新币</span>
+    <span class="ch">🔋 充电宝必带（15:40→凌晨）</span>
+    <span class="ch">👟 轻便透气鞋，全程站 + 走</span>
+    <span class="ch">🧥 薄雨衣，10 月易阵雨、<b>场内不能撑伞</b></span>
+    <span class="ch">🚫 <b>入口只进不出</b>，出来要重新安检</span>
+    <span class="ch">🚧 滨海湾封路，约克酒店在封路区外</span>
+    <span class="ch">🚇 散场最近地铁：Promenade / Esplanade</span>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- =====================  PLACE INDEX  ======================= -->
+<!-- ============================================================ -->
+<section id="budget">
+  <div class="cityhd">
+    <span class="flag">💴</span>
+    <div>
+      <h2>预算与花费</h2>
+      <div class="meta">4 人 · 9 天 · 总约 <b>¥51,690</b> · 人均 ≈ ¥12,920 · 不含购物</div>
+    </div>
+  </div>
+  <p class="lede">按「<b>已付确定 / 已付待核 / 未付估算</b>」三档拆开，每笔都能追到订单原件。汇率参考：1 MYR ≈ ¥1.64、1 S$ ≈ ¥5.4（按订单里税费反推）。</p>
+
+  <div class="chips" style="margin-top:14px">
+    <span class="ch">① 已付 · 确定 <b>¥32,159</b> · 62%</span>
+    <span class="ch">② 已付 · 待核 <b>≈¥9,477</b> · 18%</span>
+    <span class="ch">③ 未付 · 估算 <b>≈¥10,050</b> · 20%</span>
+  </div>
+  <div class="chips">
+    <span class="ch">✈️ 机票 <b>¥14,782</b> · 29%</span>
+    <span class="ch">🏨 住宿 <b>¥21,026</b> · 41%</span>
+    <span class="ch">其余 <b>≈¥15,880</b> · 30%</span>
+  </div>
+  <div class="note tip"><b>一句话</b>机票 + 住宿占了近七成；兰卡威免税岛集中买伴手礼最省。</div>
+
+  <div class="sub-t"><span class="ic">💴</span>分项拆解</div>
+  <div class="card">
+    <div class="bd" style="display:block;padding:8px 16px 14px">
+
+      <div style="font-weight:700;color:var(--muted);font-size:12.5px;letter-spacing:.5px;margin:6px 0 4px">① 已付 · 订单上能查到的确定数</div>
+      <div class="row"><div class="tm">✈️ 机票</div><div class="body">
+        <div class="desc">国际往返（杭州→厦门→槟城 + 新加坡→杭州）<b>¥3,141 × 4 人 = ¥12,564</b><br>
+        内段亚航 3 段 × 4 人 <b>¥2,218</b>（¥791 + ¥1,427）<br>
+        <b>小计 ¥14,782</b></div></div></div>
+      <div class="row"><div class="tm">🏨 住宿</div><div class="body">
+        <div class="desc">燕京 ¥2,718.92 · 彩虹 ¥4,490.26 · 丽思 ¥4,488.22 · 约克（同程）¥4,129.02<br><b>小计 ¥15,826.42</b>（8 晚 × 2 间房）</div></div></div>
+      <div class="row"><div class="tm">🎟️ 门票</div><div class="body">
+        <div class="desc">槟城升旗山缆车 Express Lane ×4　RM280 ≈ <b>¥460</b><br>槟城升旗山生态公园 ×4　<b>¥274</b>（4 张独立二维码）<br>新加坡滨海湾花园 花穹+云雾林 ×4　<b>¥570.80</b><br><b>小计 ¥1,304.80</b></div></div></div>
+      <div class="row"><div class="tm">🚤 当地游</div><div class="body">
+        <div class="desc">Kilim 红树林定金 RM150 ≈ <b>¥246</b>（余 RM200 现场结）</div></div></div>
+      <div class="row"><div class="tm">合计</div><div class="body">
+        <div class="tagline" style="color:var(--penang)">≈ ¥32,159</div>
+        <div class="desc">这部分是<b>已经花掉、订单上写明的钱</b></div></div></div>
+
+      <div style="font-weight:700;color:var(--muted);font-size:12.5px;letter-spacing:.5px;margin:16px 0 4px">② 已付 · 金额待最终确认（2 项）</div>
+      <div class="row"><div class="tm">🏨</div><div class="body"><div class="desc">约克酒店 <b>Agoda 那间</b> —— 确认单未显示金额，主人提供的数字 ≈ <b>¥5,200</b>（<b>待最终确认</b>）</div></div></div>
+      <div class="row"><div class="tm">🏁</div><div class="body"><div class="desc">F1 Zone 4 walkabout 4 张（10.9 单日）—— 官方参考价 S$198/人/日 ≈ <b>¥4,277</b></div></div></div>
+      <div class="row"><div class="tm">合计</div><div class="body"><div class="tagline" style="color:var(--penang)">≈ ¥9,477</div>
+        <div class="desc">两项合计已付总额 ≈ <b>¥41,636</b></div></div></div>
+
+      <div style="font-weight:700;color:var(--muted);font-size:12.5px;letter-spacing:.5px;margin:16px 0 4px">③ 还没付 · 现场支出（估算）</div>
+      <div class="row"><div class="tm">🍜 餐饮</div><div class="body"><div class="desc">8 天 × 约 ¥680/天 ≈ <b>¥5,500</b>（槟城/兰卡威便宜，新加坡贵）</div></div></div>
+      <div class="row"><div class="tm">🚗 交通</div><div class="body"><div class="desc">4 城全程 Grab + 地铁 + 机场接送 ≈ <b>¥2,800</b></div></div></div>
+      <div class="row"><div class="tm">🎫 杂项</div><div class="body"><div class="desc">吉隆坡塔 RM90×4 · 侨生博物馆 RM30×4 · 邱公司 · 孕妇岛 RM20×4 · 红树林余款 RM200 ≈ <b>¥1,600</b></div></div></div>
+      <div class="row"><div class="tm">🧾 酒店杂费</div><div class="body"><div class="desc">兰卡威遗产费 RM40 + 吉隆坡旅游税 ¥66.52 + 槟城城市税 ¥13.45 ≈ <b>¥150</b></div></div></div>
+      <div class="row"><div class="tm">合计</div><div class="body"><div class="tagline" style="color:var(--penang)">≈ ¥10,050</div></div></div>
+
+      <div class="note tip" style="margin-top:14px"><b>💰 总花费 ≈ ¥51,690</b>（4 人 9 天，人均约 ¥12,920）<b>不含购物与伴手礼</b>。<br>
+        其中 <b>机票 ¥14,782（29%）+ 住宿 ¥21,026（41%）</b> 已占七成，剩下的是餐饮交通门票。</div>
+      <div class="note warn" style="margin-top:8px"><b>⚠️ 押金不算消费</b>槟城燕京入住收 <b>MYR 1500/间 × 2 = MYR 3,000（≈¥4,800）</b>，退房后 7 天内退回——不是花掉，但要刷得出额度或备现金。</div>
+      <div class="note warn" style="margin-top:8px"><b>⚠️ 两处待你核对</b>约克 Agoda 那间金额（≈¥5,200，待最终确认）、F1 实际票价——补上后总账才算准。</div>
+      <div class="note tip" style="margin-top:8px"><b>💡 门票为什么比官方便宜</b>滨海湾双馆实付 <b>¥570.80</b>（4 张），比官方 S$46/成人（≈¥994）低不少——因为手上这张是 Trip.com 的 <b>「TA Adult」旅行社分销价</b>，不是官网门市价。升旗山生态公园同理（¥274 vs 官方 RM60/人）。</div>
+    </div>
+  </div>
+
+  <div class="sub-t"><span class="ic">💵</span>现金与支付</div>
+  <div class="card">
+    <div class="bd" style="display:block;padding:8px 16px 14px">
+      <div class="row"><div class="tm">🇲🇾 马来西亚</div><div class="body"><div class="desc">备 <b>MYR 2,000–2,500 现金</b>。夜市、小贩中心基本只收现金；红树林余款 RM200、孕妇岛上岛费 RM20 也走现金。</div></div></div>
+      <div class="row"><div class="tm">🇸🇬 新加坡</div><div class="body"><div class="desc">备 <b>S$300–500</b> 就够，多数可刷卡 / 移动支付。</div></div></div>
+      <div class="row"><div class="tm">💳 信用卡</div><div class="body"><div class="desc"><b>额度要够付 MYR 3,000 押金</b>（槟城燕京 1500/间 × 2）。额度不够就带等值现金。</div></div></div>
+      <div class="row"><div class="tm">🧾 退税</div><div class="body"><div class="desc">新加坡单店满 <b>S$100</b> 可退，樟宜 <b>T1</b> 办，保留小票 + 护照。</div></div></div>
+    </div>
+  </div>
+
+  <div class="sub-t"><span class="ic">📉</span>省钱要点</div>
+  <div class="card">
+    <div class="bd" style="display:block;padding:8px 16px 14px">
+      <div class="row"><div class="tm">1</div><div class="body"><div class="desc"><b>免费项很多</b>超级树灯光秀、鱼尾狮、黑风洞外观、兰卡威沙滩、姓氏桥、壁画街、独立广场、鬼仔巷——都不花钱。</div></div></div>
+      <div class="row"><div class="tm">2</div><div class="body"><div class="desc"><b>兰卡威是免税岛</b>巧克力 / 酒 / 伴手礼比市区便宜，在这一站集中买。</div></div></div>
+      <div class="row"><div class="tm">3</div><div class="body"><div class="desc"><b>饭钱花在槟城和兰卡威</b>新加坡只吃必要几顿（金沙食阁人均 S$10–15 最划算）。</div></div></div>
+      <div class="row"><div class="tm">4</div><div class="body"><div class="desc"><b>红树林按船计价</b>RM350/船、可坐 10 人——到码头看看能不能拼船，摊下来人均约 RM35。</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="places">
+  <div class="cityhd">
+    <span class="flag">📋</span>
+    <div>
+      <h2>地点清单</h2>
+      <div class="meta">按时间顺序 · 点名字直接跳地图</div>
+    </div>
+  </div>
+  <p class="lede">出门前把这一页<b>截图存手机</b>，没网也能对着看。带下划线的名字点开就是地图。</p>
+
+  <div class="card">
+    <div class="bd" style="display:block;padding:6px 16px 18px">
+
+      <div class="pdate" style="background:var(--penang)">10.3 周六 · 槟城</div>
+      <ul class="plist">
+        <li><span class="place" data-place="Penang International Airport" data-alt="槟城国际机场">槟城国际机场</span><span class="lt">17:50 落地 → Grab 去酒店约 30 分钟</span></li>
+        <li><span class="place" data-place="Yeng Keng Hotel 燕京酒店">燕京酒店</span><span class="lt">住 10.3–10.5 · 乔治市 Chulia 街</span></li>
+        <li><span class="place" data-place="Kimberley Street 汕头街 Penang">汕头街 · Kimberley St</span><span class="lt">19:30 晚餐 · 酒店步行 10 分钟内（新关仔角已挪到 10.4）</span></li>
+      </ul>
+
+      <div class="pdate" style="background:var(--penang)">10.4 周日 · 升旗山生态公园 + 老城（下午全程步行）</div>
+      <ul class="plist">
+        <li><span class="place" data-place="Chulia Street 茶室 George Town">Chulia 街茶室</span><span class="lt">06:45 早餐 · 多春茶室周日休，就近解决</span></li>
+        <li><span class="place" data-place="Penang Hill 升旗山">升旗山缆车</span><span class="lt">07:40 到山脚换票 · Grab 约 22 分钟 · 票已购（4 张 Express Lane）</span></li>
+        <li><span class="place" data-place="The Habitat Penang Hill">升旗山生态公园 The Habitat</span><span class="lt">09:00–11:00 · 票已购 4 张（各自独立二维码，不含缆车）· 查 Curtis Crest 是否恢复</span></li>
+        <li><span class="place" data-place="Green House Prawn Mee 青屋虾面">青屋虾面</span><span class="lt">12:15 午餐 · 和酒店同一条街，步行 3 分钟</span></li>
+        <li><span class="place" data-place="Durian Valley 聚榴堂">聚榴堂 Durian Valley</span><span class="lt">饭后 · 就在老城动线上</span></li>
+        <li><span class="place" data-place="George Town Street Art 壁画街">乔治市壁画街</span><span class="lt">14:30 · 步行 5 分钟，30 分钟拍完就走</span></li>
+        <li><span class="place" data-place="Leong San Tong Khoo Kongsi">龙山堂邱公司</span><span class="lt">15:00 · 步行 5 分钟，RM10–15 备现金</span></li>
+        <li><span class="place" data-place="Pinang Peranakan Mansion 侨生博物馆">侨生博物馆</span><span class="lt">15:30 · 步行 10 分钟，RM30，<b>17:00 关门</b>，赶 15:30 免费导览</span></li>
+        <li><span class="place" data-place="Clan Jetties 姓氏桥">姓氏桥</span><span class="lt">16:45 · 步行 10 分钟，<b>压缩到 25 分，只走姓周桥</b></span></li>
+        <li><span class="place" data-place="Gurney Drive Hawker Centre" data-alt="新关仔角">新关仔角小贩中心</span><span class="lt">18:00 晚餐 · 从老城 Grab 约 15 分钟</span></li>
+      </ul>
+
+      <div class="pdate" style="background:var(--penang)">10.5 周一 · 槟城 → 兰卡威</div>
+      <ul class="plist">
+        <li><span class="place" data-place="Seven Streets Market 七条路巴刹">七条路巴刹</span><span class="lt">07:30 早餐 · 步行 12 分钟，只开上午</span></li>
+        <li><span class="place" data-place="Penang International Airport" data-alt="槟城国际机场">槟城机场（D 航站楼）</span><span class="lt">11:30 到 · AK6242 13:30 起飞</span></li>
+        <li><span class="place" data-place="Pelangi Beach Resort &amp; Spa Langkawi" data-alt="彩虹度假酒店">彩虹度假酒店</span><span class="lt">住 10.5–10.7 · 珍南海滩上</span></li>
+        <li><span class="place" data-place="Pantai Cenang 珍南海滩">珍南海滩</span><span class="lt">16:00 · 酒店门口，0 车程</span></li>
+        <li><span class="place" data-place="真浪花园海鲜餐厅 Pantai Tengah Langkawi">真浪花园海鲜</span><span class="lt">17:30 晚餐 · 奶油老虎虾，车程 6 分钟</span></li>
+        <li><span class="place" data-place="卓峰海鲜 ZF Seafood Pantai Tengah Langkawi">卓峰海鲜 ZF Seafood</span><span class="lt">晚餐备选 · 中央海滩，口味合国人</span></li>
+        <li><span class="place" data-place="真浪大家乐海鲜餐馆 珍南 Happy Happy Cenang Seafood">真浪大家乐</span><span class="lt">平价备选 · 步行 5 分钟，大排档</span></li>
+        <li><span class="place" data-place="Hidden Langkawi Pantai Tengah">Hidden Langkawi</span><span class="lt">18:45 到 · 20:00 火舞表演，车程 8 分钟</span></li>
+      </ul>
+
+      <div class="pdate" style="background:var(--langkawi)">10.6 周二 · 跳岛 + 落日巡游（09:00–20:00 · 已订）</div>
+      <ul class="plist">
+        <li><span class="place" data-place="Jetty Point Kuah Langkawi 瓜镇游艇码头">瓜镇游艇码头</span><span class="lt">09:00 集合 · 08:15 酒店出发，车程 30 分钟</span></li>
+        <li><span class="place" data-place="Pulau Beras Basah Langkawi">湿米岛</span><span class="lt">09:15–10:15 · 浮潜、游泳、沙滩</span></li>
+        <li><span class="place" data-place="Langkawi eagle feeding 喂老鹰">海上喂老鹰</span><span class="lt">10:45 · 船停海面看群鹰掠食</span></li>
+        <li><span class="place" data-place="Pulau Dayang Bunting Langkawi">孕妇岛</span><span class="lt">12:00 · 淡水湖游泳，上岛费 RM20/人自付</span></li>
+        <li><span class="place" data-place="白沙岛 Langkawi">白沙岛</span><span class="lt">13:30 · BBQ 午餐 + 鱼货免费加工</span></li>
+        <li><span class="place" data-place="Langkawi sunset cruise 落日巡游">落日巡游</span><span class="lt">16:00–20:00 · 海上托网、水上活动、自助晚餐</span></li>
+      </ul>
+
+      <div class="pdate" style="background:var(--langkawi)">10.7 周三 · 兰卡威 → 吉隆坡</div>
+      <ul class="plist">
+        <li><span class="place" data-place="Kilim Geoforest Park Jetty Langkawi">Kilim 红树林码头</span><span class="lt">09:00–11:00 · 喂猴子/喂老鹰/蝙蝠洞/养殖场，总价 RM350、已付定金 150</span></li>
+        <li><span class="place" data-place="Langkawi International Airport" data-alt="兰卡威机场">兰卡威机场</span><span class="lt">12:15 到 · AK6325 14:30 起飞</span></li>
+        <li><span class="place" data-place="The Ritz-Carlton Kuala Lumpur" data-alt="丽思卡尔顿">丽思卡尔顿</span><span class="lt">住 10.7–10.9 · 武吉免登</span></li>
+        <li><span class="place" data-place="Petaling Street 茨厂街 Kuala Lumpur">茨厂街</span><span class="lt">18:00 晚餐 · 丽思 Grab 约 10 分钟，人均 RM20–30</span></li>
+        <li><span class="place" data-place="Central Market Kuala Lumpur 中央艺术坊">中央艺术坊</span><span class="lt">19:15 · 步行 10 分钟，开到 21:00，蜡染画体验 RM15–30</span></li>
+      </ul>
+
+      <div class="pdate" style="background:var(--kl)">10.8 周四 · 吉隆坡一整天</div>
+      <ul class="plist">
+        <li><span class="place" data-place="Batu Caves 黑风洞">黑风洞</span><span class="lt">09:00 · Grab 约 30 分钟，274 级台阶，猴子多别拿食物</span></li>
+        <li><span class="place" data-place="Kuala Lumpur Railway Station">旧火车站</span><span class="lt">10:40 · Grab 约 25 分钟，正前方天桥是全景机位</span></li>
+        <li><span class="place" data-place="Malayan Railway Administration Building Kuala Lumpur">马来铁路行政大楼</span><span class="lt">11:05 · 步行 5 分钟，只拍外观</span></li>
+        <li><span class="place" data-place="Merdeka Square 独立广场">独立广场 · 苏丹阿都沙末大厦</span><span class="lt">11:20 · 步行 8 分钟，免费</span></li>
+        <li><span class="place" data-place="Masjid Jamek Kuala Lumpur">占美清真寺</span><span class="lt">11:45 · 步行 5 分钟，拍外观就行</span></li>
+        <li><span class="place" data-place="Kwai Chai Hong Kuala Lumpur">鬼仔巷</span><span class="lt">12:05 · 步行 8 分钟，免费，10–15 分钟</span></li>
+        <li><span class="place" data-place="Pavilion Kuala Lumpur 柏威年">柏威年 + Henna 手绘</span><span class="lt">14:30 · 8 楼指甲花彩绘 RM10–30，约 15 分钟</span></li>
+        <li><span class="place" data-place="McDonald's Bukit Bintang Crossing Kuala Lumpur">麦当劳十字路口</span><span class="lt">16:00 · 步行 10 分钟，路过顺手拍</span></li>
+        <li><span class="place" data-place="Bukit Bintang Pedestrian Street Kuala Lumpur">武吉免登步行街</span><span class="lt">16:20 · 步行 8 分钟，随便逛，累了就回房</span></li>
+        <li><span class="place" data-place="Menara Kuala Lumpur Tower 吉隆坡塔">吉隆坡塔</span><span class="lt">17:30 · Grab 约 10 分钟，RM90，电梯直达，上面看 19:00 日落</span></li>
+        <li><span class="place" data-place="Jalan Alor 阿罗街">亚罗街夜市</span><span class="lt">19:00 · 黄亚华沙爹 + 烤鸡翅 + 榴莲煎蕊，走回酒店 15 分钟</span></li>
+        <li><span class="place" data-place="Menara Public Bank Jalan Ampang Kuala Lumpur">双子塔夜景机位</span><span class="lt">20:15 · Menara Public Bank 拍整座倒影，还有力气才去</span></li>
+      </ul>
+
+      <div class="pdate" style="background:var(--kl)">10.9 周五 · 吉隆坡 → 新加坡（今晚 F1）</div>
+      <ul class="plist">
+        <li><span class="place" data-place="Chow Kit Market Kuala Lumpur">秋杰巴刹</span><span class="lt">09:00 · Grab 约 12 分钟，控在 40 分钟，只收现金</span></li>
+        <li><span class="place" data-place="Lot 10 Hutong Food Court Kuala Lumpur">十号胡同 Lot 10</span><span class="lt">10:00 午餐 · Grab 约 10 分钟（3 km，步行要 37 分），老字号一站式，人均 RM30–50</span></li>
+        <li><span class="place" data-place="klia2 Kuala Lumpur International Airport 2">klia2</span><span class="lt">11:15 前上车 · 车程约 1 小时，12:15 到机场</span></li>
+        <li><span class="place" data-place="Changi Airport Terminal 4 樟宜机场 T4">樟宜机场 T4</span><span class="lt">15:40 落地 · AK715，入境排队 30–40 分钟</span></li>
+        <li><span class="place" data-place="York Hotel Singapore 约克酒店">约克酒店（怡阁）</span><span class="lt">住 10.9–10.11 · 乌节路，在封路区外</span></li>
+        <li><span class="place" data-place="Marina Bay Street Circuit Gate 4 Singapore" data-alt="滨海湾赛道">滨海湾赛道 Gate 4/5/6/7</span><span class="lt">18:30 入场 · 酒店 Grab 10–15 分钟</span></li>
+        <li><span class="place" data-place="Padang Stage Singapore">Padang Stage</span><span class="lt">22:30 林俊杰（22:30–23:45）· 21:14 后先来占位</span></li>
+        <li><span class="place" data-place="Raffles Place MRT" data-alt="莱佛士坊">莱佛士坊地铁站</span><span class="lt">00:00 散场 · 坐地铁或 Grab 回乌节路</span></li>
+      </ul>
+
+      <div class="pdate" style="background:var(--sg)">10.10 周六 · 麦士威 + 滨海湾花园双馆 + 超级树</div>
+      <ul class="plist">
+        <li><span class="place" data-place="York Hotel Singapore 约克酒店">约克酒店</span><span class="lt">08:30 早餐就在乌节路一带解决</span></li>
+        <li><span class="place" data-place="Merlion Park 鱼尾狮公园">鱼尾狮公园</span><span class="lt">09:45 · 免费，拍完顺滨海湾走一段</span></li>
+        <li><span class="place" data-place="Maxwell Food Centre 麦士威熟食中心">麦士威熟食中心</span><span class="lt">10:45 早午餐 · <b>天天海南鸡饭 10:00 才开门</b>，这时刚好不用排长队</span></li>
+        <li><span class="place" data-place="York Hotel Singapore 约克酒店">回酒店午休</span><span class="lt">12:15 · 歇 2 小时，昨晚 F1 到凌晨</span></li>
+        <li><span class="place" data-place="Gardens by the Bay 滨海湾花园">滨海湾花园 · 花穹 + 云雾林</span><span class="lt">15:00 · <b>票已购 4 张</b>，室内恒温，两馆须同一天逛完</span></li>
+        <li><span class="place" data-place="Rasapura Masters Marina Bay Sands">滨海湾金沙食阁</span><span class="lt">18:15 晚餐 · 步行 15 分，有冷气，人均 10–15 新币</span></li>
+        <li><span class="place" data-place="Gardens by the Bay 滨海湾花园">超级树灯光秀</span><span class="lt">19:45 / 20:45 两场，免费 · 提前 15 分钟到草坪占位</span></li>
+      </ul>
+
+      <div class="pdate" style="background:var(--sg)">10.11 周日 · 返程</div>
+      <ul class="plist">
+        <li><span class="place" data-place="Ya Kun Kaya Toast 亚坤">亚坤咖椰吐司</span><span class="lt">08:30 早餐 · 乌节路门店，酒店步行可达</span></li>
+        <li><span class="place" data-place="Fort Canning Park 福康宁公园">福康宁公园</span><span class="lt">09:15 · 步行约 18 分钟，<b>先逛再退房</b>，省掉折返</span></li>
+        <li><span class="place" data-place="York Hotel Singapore 约克酒店">约克酒店</span><span class="lt">10:15 回酒店退房（<b>11:00 前必须退</b>）</span></li>
+        <li><span class="place" data-place="Changi Airport Terminal 1 樟宜机场 T1">樟宜机场 T1</span><span class="lt">10:45 出发 → 11:30 到 · Grab 约 25 分钟 · MF8704 14:50 起飞</span></li>
+      </ul>
+
+    </div>
+  </div>
+  <div class="note tip"><b>💡</b>「<b>二选一</b>」只剩一处：<b>10.10 午餐 珍珍叻沙 / Ting Heng</b>，两个方向相反，挑一个就好。</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- =====================  PRE-TRIP TO-DO  ==================== -->
+<!-- ============================================================ -->
+<section id="todo">
+  <div class="cityhd">
+    <span class="flag">✅</span>
+    <div>
+      <h2>行前 To-Do</h2>
+      <div class="meta">勾选状态存在本机，出发前逐条过一遍</div>
+    </div>
+  </div>
+
+  <div class="todo-prog">
+    <span id="tp-txt">0 / 0 已完成</span>
+    <span class="pbar"><i id="tp-bar"></i></span>
+    <button id="tp-reset" class="tp-reset">重置</button>
+  </div>
+  <div class="todo-tip">点<b>方框</b>或整行即可打勾，勾选存在本机浏览器里，<b>关掉再开还在</b>。换设备或清缓存会丢，想稳就截图。</div>
+
+  <div class="note red"><b>重点</b><span class="nh">云储存已满是这趟最容易翻车的点。</span>9 天拍视频大概产生 <b>200–400GB</b>。建议出发前就二选一解决（见「拍摄与存储」），<b>别指望旅途中上传</b>——酒店 WiFi 慢、当地流量又贵。</div>
+
+  <div class="sub-t"><span class="ic">📹</span>拍摄与存储</div>
+  <div class="card">
+    <div class="bd" style="display:block;padding:6px 16px 10px">
+      <div class="todo-item" data-id="t1"><span class="box"></span><span><span class="tk">借 DJI Osmo Pocket 4P</span><span class="tn">确认<b>归还日期</b>，配件要齐：保护壳、备用电池、Type-C 线</span></span></div>
+      <div class="todo-item hot" data-id="t2"><span class="box"></span><span><span class="tk">解决云储存已满（出发前，不要拖到路上）</span><span class="tn"><b>二选一：</b>① 清理 + 升级云端（Google One / iCloud+ / 百度网盘会员）② 买 <b>1TB 便携 SSD</b>，旅途中本地备份、回国再导<br><b>推荐 ②</b>——不依赖网络，最稳</span></span></div>
+      <div class="todo-item" data-id="t3"><span class="box"></span><span><span class="tk">存储卡：备 2 张 256GB+</span><span class="tn">视频极吃容量，别只带一张</span></span></div>
+      <div class="todo-item" data-id="t4"><span class="box"></span><span><span class="tk">电池 + 充电宝</span><span class="tn">Osmo 备用电池；充电宝 <b>2 万毫安以内</b>才能上飞机，且必须随身不能托运</span></span></div>
+      <div class="todo-item hot" data-id="t5"><span class="box"></span><span><span class="tk">转换插头（最容易忘）</span><span class="tn">马来西亚和新加坡都是 <b>英标三角方插（Type G）</b>，国内插头<b>直接插不进</b>，必须带转换器</span></span></div>
+      <div class="todo-item" data-id="t6"><span class="box"></span><span><span class="tk">多口 USB 充电头 + 数据线若干</span><span class="tn"><b>4 人</b> + 相机，插孔永远不够用</span></span></div>
+      <div class="todo-item" data-id="t7"><span class="box"></span><span><span class="tk">定好夜间备份节奏</span><span class="tn">每天回酒店把当天素材从卡导到 SSD（顺手就做，别攒到最后）</span></span></div>
+    </div>
+  </div>
+
+  <div class="sub-t"><span class="ic">🎒</span>行李与穿搭</div>
+  <div class="card">
+    <div class="bd" style="display:block;padding:6px 16px 10px">
+      <div class="todo-item" data-id="t8"><span class="box"></span><span><span class="tk">便携小风扇</span><span class="tn">乔治市 city walk、夜市、排队都用得上，暴晒天神器</span></span></div>
+      <div class="todo-item" data-id="t9"><span class="box"></span><span><span class="tk">衣服：轻薄透气速干为主</span><span class="tn">四地都是<b>热带湿热</b>（28–33°C），短袖 + 短裤/裙，出汗多要备足套数</span></span></div>
+      <div class="todo-item" data-id="t10"><span class="box"></span><span><span class="tk">薄外套 1 件</span><span class="tn">商场、缆车、室内冷气很猛；<b>升旗山顶风大</b>，爸妈尤其需要</span></span></div>
+      <div class="todo-item" data-id="t11"><span class="box"></span><span><span class="tk">长裤 1 条</span><span class="tn">进<b>占美清真寺 / 苏丹回教堂 / 黑风洞</b>要遮腿遮肩，着装保守些</span></span></div>
+      <div class="todo-item" data-id="t12"><span class="box"></span><span><span class="tk">鞋：轻便透气运动鞋 + 凉拖</span><span class="tn">F1 那晚<b>全程站 + 走</b>，鞋一定要舒服</span></span></div>
+      <div class="todo-item" data-id="t13"><span class="box"></span><span><span class="tk">雨具：薄雨衣 + 折叠伞</span><span class="tn">10 月午后常突然阵雨；<b>赛道内不能撑伞</b>，只能雨衣</span></span></div>
+      <div class="todo-item" data-id="t14"><span class="box"></span><span><span class="tk">防晒三件套：防晒霜、帽子、墨镜</span><span class="tn">赤道紫外线很狠，city walk 全程户外</span></span></div>
+      <div class="todo-item" data-id="t15"><span class="box"></span><span><span class="tk">泳衣</span><span class="tn">兰卡威海滩 + 度假酒店泳池</span></span></div>
+      <div class="todo-item" data-id="t16"><span class="box"></span><span><span class="tk">出海的防晒行头</span><span class="tn">防晒长袖、<b>防滑凉鞋/溯溪鞋</b>、遮阳帽；船上和岛上都是湿滑地面，运动鞋反而累赘</span></span></div>
+    </div>
+  </div>
+
+  <div class="sub-t"><span class="ic">📄</span>证件与入境</div>
+  <div class="card">
+    <div class="bd" style="display:block;padding:6px 16px 10px">
+      <div class="todo-item" data-id="t17"><span class="box"></span><span><span class="tk">护照有效期 &gt; 6 个月</span><span class="tn"><b>4 人</b>逐本核一遍 · <b>已核 ✓</b>最短的洪晓园/程忠燕到 2028-05-21</span></span></div>
+      <div class="todo-item hot" data-id="t18"><span class="box"></span><span><span class="tk">马来西亚 MDAC 数字入境卡</span><span class="tn"><b>已完成 ✓</b> 4 份已于 10.1 填写提交（每位一份），打印件在「01_行程单&机票&酒店」里。入境 10.3 / 离境 10.9 / 航班 MF8705 / 住宿燕京酒店</span></span></div>
+      <div class="todo-item hot" data-id="t64"><span class="box"></span><span><span class="tk">🔄 杭州值机时确认：行李直挂到槟城 + 国际段登机牌一起打</span><span class="tn">去程要在<b>厦门中转 3h35m</b>，行李取不取、手续办哪些，<b>全看杭州值机时办的哪种票</b>。<br><b>问一句</b>：「行李能直挂到槟城吗？」<br><b>看行李条目的地代码</b>：<b>PEN = 直挂 ✓</b>（厦门不用取）｜<b>XMN = 没直挂 ✗</b>（厦门要在一层取行李再上二楼重办）<br><b>再问一句</b>：「国际段登机牌能现在一起打出来吗？」能的话厦门就只办出境海关+边检+安检</span></span></div>
+      <div class="todo-item hot" data-id="t63"><span class="box"></span><span><span class="tk">🛂 马来西亚入境：4 人全部走人工柜台盖章</span><span class="tn"><b style="color:#c0392b">这条最要紧，别走自助闸门。</b>槟城机场有 autogate、中国公民免签也能用，但<b>自助通关不盖章</b>，记录只在移民局系统里。<b>中国驻槟城总领馆提醒</b>：落地北马没入境章、或停留期有误，<b>离境会被卡</b>。<br>落地后：4 人都排人工柜台 → 盖入境章 → <b>当场核对章上的停留期限</b>（免签 30 天，10.3 入境 → 最晚 11.2）→ 再离开。万一走错闸门，<b>别出机场</b>，去移民局办公室补盖</span></span></div>
+      <div class="todo-item hot" data-id="t19"><span class="box"></span><span><span class="tk">新加坡 SG Arrival Card（SGAC）</span><span class="tn"><b>⚠️ 还没填，4 人各一份。</b>抵达前 <b>3 天内</b>在线填——10.9 落地就是 <b>10.6 之后</b>才能填，今天（10.2）还填不了，<b>出发后记得盯</b>。填完存截图</span></span></div>
+      <div class="todo-item" data-id="t20"><span class="box"></span><span><span class="tk">机票确认单（4 段）</span><span class="tn">10.3 杭州→槟城（MF8592+MF8705）· 10.5 AK6242 · 10.7 AK6325 · 10.9 AK715 · 10.11 返程 MF8704，全部<b>离线保存或打印</b></span></span></div>
+      <div class="todo-item" data-id="t21"><span class="box"></span><span><span class="tk">四家酒店确认单（均 2 间房）</span><span class="tn">燕京 / 彩虹 / 丽思卡尔顿 / 约克，入境和打车都可能要看，存离线截图</span></span></div>
+      <div class="todo-item hot" data-id="t61"><span class="box"></span><span><span class="tk">槟城燕京酒店押金 <b>MYR 1500/间 × 2 = MYR 3000</b>（≈¥4,800）</span><span class="tn">入住时收，<b>现金或信用卡</b>，退房后 7 天内退回。要么带够额度够的信用卡，要么备足现金</span></span></div>
+      <div class="todo-item" data-id="t22"><span class="box"></span><span><span class="tk">旅行保险</span><span class="tn">带父母建议含医疗和行程延误</span></span></div>
+      <div class="todo-item" data-id="t23"><span class="box"></span><span><span class="tk">出发前一周再核对一次两国免签政策</span><span class="tn">政策会变，以官方为准</span></span></div>
+    </div>
+  </div>
+
+  <div class="sub-t"><span class="ic">📌</span>待订 / 待定（这组最要紧，越早越好）</div>
+  <div class="card">
+    <div class="bd" style="display:block;padding:6px 16px 10px">
+      <div class="todo-item" data-id="t35"><span class="box"></span><span><span class="tk">兰卡威 · 确认跳岛+巡游的<b>接送时间</b>（10.5 晚上做）</span><span class="tn">已订 10.6 全天。含接送的话<b>接人时间由司导前一天通知</b>，10.5 睡前问清楚，不然第二天 09:00 赶不上码头集合</span></span></div>
+      <div class="todo-item hot" data-id="t36"><span class="box"></span><span><span class="tk">兰卡威 · 红树林（<b>已付定金，不用再订</b>）</span><span class="tn">10.7 09:00–11:00，Kilim 码头。<b>总价 350 马币/船，已付 150 定金</b>，余款 200 现场结。可坐 10 人——<b>到码头看有没有人拼船，能摊到人均 35 马币</b></span></span></div>
+      <div class="todo-item hot" data-id="t49"><span class="box"></span><span><span class="tk">兰卡威 · Hidden Langkawi 订位（10.5 火舞）</span><span class="tn">火舞约 <b>20:00</b> 开始，19:00 起有 live band。<b>提前订位</b>，前排/露台可能有最低消费（约 200 马币）。订不到就早一点到沙滩占位，火舞在沙滩上演，站哪都看得见</span></span></div>
+      <div class="todo-item" data-id="t60"><span class="box"></span><span><span class="tk">两天出海的装备（10.5 前备齐）</span><span class="tn"><b>浴巾、泳衣、防晒霜、防水袋、防滑凉鞋</b>，爸爸的晕船药备足——10.6 要在船上待 10 小时</span></span></div>
+      <div class="todo-item hot" data-id="t38"><span class="box"></span><span><span class="tk">F1 门票核对（10.9 周五）</span><span class="tn">已购 Zone 4 = Gates 4/5/6/7。要确认：<b>电子票还是实体票、入场凭证是什么、Gate 当晚几点开</b>，并跟爸妈约好散场在哪个门碰头</span></span></div>
+      <div class="todo-item" data-id="t41"><span class="box"></span><span><span class="tk">槟城 · 升旗山缆车 Fast Lane + 生态公园（10.4 上午）</span><span class="tn"><b>已购 ✓</b> 缆车 4 张 Express Lane（2 成人 + 2 长者），参观日 <b>10.4</b>，票号 615176，共 RM280 —— <b>到现场去 5 或 6 号换票柜台</b>。<br><b>生态公园 The Habitat</b> 4 张成人标准日场票，¥274，有效期至 2027-07-21，<b>4 张是各自独立的二维码、一人一张</b>（凭证已存档）。<br>上缆车抢<b>右侧座位</b>视野最好。<b>10.4 一早走</b>——国庆假期 + 周日，缆车站排长队</span></span></div>
+      <div class="todo-item hot" data-id="t62"><span class="box"></span><span><span class="tk">查 Curtis Crest 树顶步道是否已恢复（10.3 睡前）</span><span class="tn">升旗山生态公园的招牌景点 <b>Curtis Crest Treetop Walk</b> 据报道 <b>2026-05-13 起在检修</b>，园区照常开但部分区域可能关闭。<b>10.3 睡前上官网 / 小红书确认一下</b>——没恢复的话，生态公园的期待值要调整</span></span></div>
+      <div class="todo-item" data-id="t42"><span class="box"></span><span><span class="tk">吉隆坡 · 吉隆坡塔观景台（10.8 傍晚）</span><span class="tn">门票约 <b>RM90</b>，官网提前买可免排队，选<b>日落前后</b>时段。<b>双子塔不上观景台</b>，只在 Menara Public Bank 拍夜景</span></span></div>
+      <div class="todo-item" data-id="t44"><span class="box"></span><span><span class="tk">兰卡威交通：<b>全程 Grab，别定租车</b></span><span class="tn">看着 4 人租车划算，但中国驾照在马来西亚需要<b>国际驾照 IDP 或认可翻译件，而中国不签发 IDP</b>——这条路实际走不通。Grab 省心也不贵</span></span></div>
+      <div class="todo-item hot" data-id="t43"><span class="box"></span><span><span class="tk">亚航行李额度 + <b>10.9 国际段的值机截止</b></span><span class="tn"><b>已加购 ✓</b>（主人确认）。<b>手提 7kg 是硬规定</b>，别超。<b>10.9 吉隆坡→新加坡是国际段，值机和行李托运在起飞前 60 分钟关闭（13:25）</b>——所以攻略里把上车时间卡在 11:15，别往后拖。能网上值机就先把两段都值了</span></span></div>
+      <div class="todo-item" data-id="t45"><span class="box"></span><span><span class="tk">返程 10.11 航班号 / 航站楼</span><span class="tn"><b>已确认 ✓</b> <b>MF8704 厦门航空 · 樟宜 T1 · 14:50 起飞 → 杭州萧山 T4 20:15</b>。<b>注意：10.9 落地的是樟宜 T4，回程从 T1 走，两楼不互通</b>，需坐接驳。国际航班提前 2.5–3 小时到，本攻略按 12:00 前后到机场排的</span></span></div>
+      <div class="todo-item" data-id="t46"><span class="box"></span><span><span class="tk">新加坡 GST 退税</span><span class="tn">单店满 <b>S$100</b> 可退，机场办，<b>保留小票</b>（和护照一起）</span></span></div>
+      <div class="todo-item" data-id="t47"><span class="box"></span><span><span class="tk">做一张总预算表</span><span class="tn"><b>已完成 ✓</b> 见上方「💴 总花费统计」。总花费约 <b>¥51,690</b>（人均 ¥12,920，不含购物）；据此决定换多少现金——<b>马来备 MYR 2,000–2,500、新加坡备 S$300–500</b></span></span></div>
+      <div class="todo-item" data-id="t48"><span class="box"></span><span><span class="tk">服务费与小费口径（知道就行）</span><span class="tn">马来西亚账单常含 <b>10% 服务费 + 税</b>；新加坡含 <b>10% 服务费 + 9% GST</b>。都已经算进去了，<b>不用另给小费</b></span></span></div>
+    </div>
+  </div>
+
+  <div class="note tip"><b>💴 花费统计已独立成章</b>顶栏导航点 <b>「💴 预算」</b> 看完整分项 —— 总花费 ≈ <b>¥51,690</b>（4 人 9 天，人均 ≈¥12,920，不含购物）。</div>
+
+  <div class="sub-t"><span class="ic">💰</span>钱与网络</div>
+  <div class="card">
+    <div class="bd" style="display:block;padding:6px 16px 10px">
+      <div class="todo-item" data-id="t24"><span class="box"></span><span><span class="tk">换些马币 MYR / 新币 SGD 现金</span><span class="tn">夜市、小贩中心（新关仔角、七条路、阿罗街）<b>基本只收现金</b></span></span></div>
+      <div class="todo-item" data-id="t25"><span class="box"></span><span><span class="tk">确认支付宝/微信能用</span><span class="tn">大商场能用，小摊不行，别只依赖手机</span></span></div>
+      <div class="todo-item" data-id="t26"><span class="box"></span><span><span class="tk">Grab 提前下载 + 绑卡</span><span class="tn">马来和新加坡<b>全靠它</b>；现在就把信用卡绑好，并帮爸妈手机也装一个</span></span></div>
+      <div class="todo-item" data-id="t27"><span class="box"></span><span><span class="tk">上网方案</span><span class="tn">eSIM（Airalo / Ubigi）或当地电话卡；或直接开漫游，比较一下价格</span></span></div>
+    </div>
+  </div>
+
+  <div class="sub-t"><span class="ic">💊</span>健康与药品</div>
+  <div class="card">
+    <div class="bd" style="display:block;padding:6px 16px 10px">
+      <div class="todo-item hot" data-id="t28"><span class="box"></span><span><span class="tk">晕船药</span><span class="tn">父亲 <b>10.6 上船前 30 分钟吃</b>，带够量——那天 <b>09:00–20:00 全程在船上，共 10 小时</b>，是这趟最久的一天；10.7 红树林 2 小时也用得上</span></span></div>
+      <div class="todo-item" data-id="t29"><span class="box"></span><span><span class="tk">常用药</span><span class="tn">肠胃药、退烧药、感冒药、创可贴——换水土容易闹肚子</span></span></div>
+      <div class="todo-item" data-id="t30"><span class="box"></span><span><span class="tk">防蚊液</span><span class="tn">东南亚蚊虫多，<b>傍晚尤其注意</b>（姓氏桥、红树林、滨海湾花园）</span></span></div>
+      <div class="todo-item" data-id="t31"><span class="box"></span><span><span class="tk">爸妈的常备处方药</span><span class="tn">带够全程 + 药单/病历复印件，以防过关或就医要说明</span></span></div>
+      <div class="todo-item" data-id="t57"><span class="box"></span><span><span class="tk">每天留出 1–2 小时午休</span><span class="tn">热带湿热，65 岁连着走一天扛不住。<b>行程里已经按这个节奏排了</b>（新加坡周六下午那 2 小时就是特意留的），别临时加项目</span></span></div>
+      <div class="todo-item" data-id="t58"><span class="box"></span><span><span class="tk">防中暑：电解质水 + 遮阳</span><span class="tn">尽量避开 <b>12:00–15:00 的户外</b>；随身带电解质冲剂，比单纯喝水管用</span></span></div>
+      <div class="todo-item" data-id="t59"><span class="box"></span><span><span class="tk">肠胃：生冷和路边摊留个心</span><span class="tn">冰饮、切好的水果、没煮透的海鲜谨慎一些；肠胃药随身带（见上）</span></span></div>
+    </div>
+  </div>
+
+  <div class="sub-t"><span class="ic">🔍</span>要核实的 / 兜底（出发前一周过一遍）</div>
+  <div class="card">
+    <div class="bd" style="display:block;padding:6px 16px 10px">
+      <div class="todo-item hot" data-id="t50"><span class="box"></span><span><span class="tk">F1 那两晚的<b>地铁末班车时间</b></span><span class="tn">10.9 / 10.10 散场都在 23:00 之后，<b>提前查好末班并截图</b>；赶不上就直接 Grab，别硬等</span></span></div>
+      <div class="todo-item" data-id="t51"><span class="box"></span><span><span class="tk">关键景点的开放时间再核一遍</span><span class="tn">容易被忽略的几个：<b>秋杰巴刹、七条路巴刹</b>只开到中午；<b>龙山堂邱公司、侨生博物馆</b>午间可能闭馆；<b>升旗山缆车</b>有检修停运日</span></span></div>
+      <div class="todo-item hot" data-id="t52"><span class="box"></span><span><span class="tk">紧急号码存进手机（三台都存）</span><span class="tn">急救 <b>马来 999 / 新加坡 995</b>；驻马使馆 <b>+60-3-21636853</b>；驻新使馆 <b>+65-64712117</b>；再加保险理赔热线</span></span></div>
+      <div class="todo-item" data-id="t53"><span class="box"></span><span><span class="tk">护照丢失预案（说一遍就行，不用做文件）</span><span class="tn">先报警拿报案单 → 联系中国使馆办旅行证 → 护照和签证页<b>拍照存云盘 + 发一份到家庭群</b>，补办时全靠这个</span></span></div>
+      <div class="todo-item" data-id="t54"><span class="box"></span><span><span class="tk">每个城市备 1–2 个室内雨天备选</span><span class="tn">10 月是雨季。槟城：商场 / 侨生博物馆；兰卡威：海底世界；吉隆坡：双子塔商场；新加坡：滨海湾金沙商场、星耀樟宜</span></span></div>
+      <div class="todo-item" data-id="t55"><span class="box"></span><span><span class="tk">列一份必拍清单</span><span class="tn">每天挑 1–2 个重点机位（姓氏桥、升旗山夜景、兰卡威日落、双子塔、超级树、赛道），顺便当 Pocket 4P 的分镜脚本，别到现场才想拍什么</span></span></div>
+      <div class="todo-item" data-id="t56"><span class="box"></span><span><span class="tk">10 月天气 / 海上活动的备选</span><span class="tn">兰卡威 <b>10.6、10.7 连着两天出海</b>，10 月是雨季。<b>万一 10.6 停航</b>，那天改走天空之桥 + 珍南沙滩 + 免税店，看能不能把红树林调到 10.6；<b>10.7 的红树林已付定金，改期要先跟船家说</b></span></span></div>
+    </div>
+  </div>
+
+  <div class="sub-t"><span class="ic">🔁</span>出门前最后检查</div>
+  <div class="card">
+    <div class="bd" style="display:block;padding:6px 16px 10px">
+      <div class="todo-item" data-id="t32"><span class="box"></span><span><span class="tk">手机里存好所有地址（离线）</span><span class="tn">四家酒店 + 机场 + 景点，做成截图，别只依赖网络</span></span></div>
+      <div class="todo-item" data-id="t33"><span class="box"></span><span><span class="tk">给爸妈手机装好 Grab + 存酒店地址</span><span class="tn">F1 那晚他们要先撤，得能自己叫车/给司机看地址</span></span></div>
+      <div class="todo-item" data-id="t34"><span class="box"></span><span><span class="tk">约好报平安机制</span><span class="tn">建个家庭群或共享位置，散场后互相确认到家</span></span></div>
+      <div class="todo-item hot" data-id="t39"><span class="box"></span><span><span class="tk">把这份 HTML 存进手机（微信收藏 / 存文件都行）</span><span class="tn">单文件、<b>离线可看</b>，不依赖网络。另外把「📋 地点清单」那一页<b>截图</b>存相册，找路时最快</span></span></div>
+      <div class="todo-item hot" data-id="t40"><span class="box"></span><span><span class="tk">榴莲最后一口留在 10.8</span><span class="tn">新加坡<b>地铁和巴士严禁携带榴莲</b>（罚款可达 500 新币），酒店多不允许，也<b>不能带上飞机</b>。10.9 飞新加坡之前别再买</span></span></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div>🧑‍🤝‍🧑 带父母之旅 · 每天都是主线</div>
+  <div class="small">点带下划线的地点名跳地图（顶部可切 Google / 百度）；点「当天路线」展开当天全部站点</div>
+  <div class="small">📶 单文件离线版 · 不需要网络也能打开</div>
+</footer>
+</div>
+
+<button class="totop" id="totop" aria-label="回到顶部">↑</button>
+
+<script>
+/* 纯 ES5 写法：兼容微信内置浏览器（X5 / 旧 WebView），不依赖任何外部资源 */
+(function(){
+  function each(list,fn){for(var i=0;i<list.length;i++){fn(list[i],i);}}
+  function has(el,cls){return el.className&&el.className.indexOf(cls)>-1;}
+  function addCls(el,cls){if(!has(el,cls)){el.className=el.className?el.className+' '+cls:cls;}}
+  function delCls(el,cls){
+    if(!el.className)return;
+    var out=el.className.split(' ');
+    var keep=[];
+    for(var i=0;i<out.length;i++){if(out[i]&&out[i]!==cls)keep.push(out[i]);}
+    el.className=keep.join(' ');
+  }
+
+  /* ---------- 地图链接 ---------- */
+  var cur='google';
+
+  /* 百度：用 URI API 的 geocoder 接口，能直接落到具体坐标；
+     并优先只喂中文名——中英混写（如 "Yeng Keng Hotel 燕京酒店"）在百度里搜不准 */
+  function baiduQuery(q){
+    if(!q)return '';
+    var cjk=q.match(/[一-龥㐀-䶿]+/g);
+    if(cjk&&cjk.length){
+      var s=cjk.join('');
+      if(s.length>=2)return s;
+    }
+    return '';
+  }
+  function mkUrl(engine,q,addr,alt){
+    if(engine==='baidu'){
+      var kw=baiduQuery(q)||baiduQuery(alt)||alt||addr||q;
+      return 'https://api.map.baidu.com/geocoder?address='+encodeURIComponent(kw)+
+             '&output=html&src=webapp.baidu.openAPIdemo';
+    }
+    return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q);
+  }
+  function urlOf(p){
+    return mkUrl(cur,p.getAttribute('data-place')||'',p.getAttribute('data-addr')||'',p.getAttribute('data-alt')||'');
+  }
+  /* 全程路线：Google 的 dir 接口支持多途经点，百度没有对应的网页接口 */
+  function gdirUrl(qs){
+    if(!qs.length)return '';
+    if(qs.length<2)return mkUrl('google',qs[0]);
+    var u='https://www.google.com/maps/dir/?api=1&travelmode=driving'+
+          '&origin='+encodeURIComponent(qs[0])+
+          '&destination='+encodeURIComponent(qs[qs.length-1]);
+    if(qs.length>2){
+      var wp=[];
+      for(var i=1;i<qs.length-1;i++)wp.push(encodeURIComponent(qs[i]));
+      u+='&waypoints='+wp.join('%7C');
+    }
+    return u;
+  }
+  function linkTo(url){
+    var w=null;
+    try{w=window.open(url,'_blank');}catch(err){w=null;}
+    if(!w){try{window.location.href=url;}catch(err2){}}
+  }
+
+  var places=document.querySelectorAll('.place[data-place]');
+
+  each(places,function(p){
+    p.setAttribute('href',urlOf(p));
+    var pm=document.createElement('span');
+    pm.className='pin';
+    pm.appendChild(document.createTextNode('📍'));
+    p.appendChild(pm);
+    var addr=p.getAttribute('data-addr');
+    if(addr&&p.parentNode){
+      var a=document.createElement('span');
+      a.className='addr';
+      a.innerHTML='<b>地址：</b>'+addr;
+      p.parentNode.insertBefore(a,p.nextSibling);
+    }
+    p.onclick=function(e){
+      if(e){if(e.preventDefault)e.preventDefault();if(e.stopPropagation)e.stopPropagation();}
+      linkTo(urlOf(p));
+      return false;
+    };
+  });
+
+  /* ---------- 每天的地图（data-stops="显示名~查询词|显示名~查询词|…"） ---------- */
+  function dstopUrl(a){return mkUrl(cur,a.getAttribute('data-place')||'',a.getAttribute('data-addr')||'',a.getAttribute('data-alt')||'');}
+
+  function syncDmaps(){
+    each(document.querySelectorAll('.dmap a.dstop'),function(a){a.setAttribute('href',dstopUrl(a));});
+  }
+
+  each(document.querySelectorAll('.dmap'),function(d){
+    var raw=d.getAttribute('data-stops')||'';
+    if(!raw)return;
+    var parts=raw.split('|'),names=[],qs=[],i;
+    for(i=0;i<parts.length;i++){
+      var seg=parts[i].split('~');
+      names.push(seg[0]);
+      qs.push(seg[1]||seg[0]);
+    }
+
+    var hd=document.createElement('div');
+    hd.className='hd';
+    hd.innerHTML='<span class="chev">▾</span><div class="t">🗺️ 当天路线 · '+names.length+' 站</div>';
+
+    var bd=document.createElement('div');
+    bd.className='bd';
+
+    var all=document.createElement('a');
+    all.className='allmap';
+    all.setAttribute('target','_blank');
+    all.setAttribute('href',gdirUrl(qs));
+    all.appendChild(document.createTextNode('🚗 打开全程路线（Google Maps）'));
+    all.onclick=(function(list){
+      return function(e){
+        if(e){if(e.preventDefault)e.preventDefault();if(e.stopPropagation)e.stopPropagation();}
+        linkTo(gdirUrl(list));
+        return false;
+      };
+    })(qs);
+    bd.appendChild(all);
+
+    var ul=document.createElement('ul');
+    for(i=0;i<names.length;i++){
+      var li=document.createElement('li');
+      var ord=document.createElement('span');
+      ord.className='ord';
+      ord.appendChild(document.createTextNode(String(i+1)));
+      li.appendChild(ord);
+      var lnk=document.createElement('a');
+      lnk.className='dstop';
+      lnk.setAttribute('data-place',qs[i]);
+      lnk.setAttribute('data-alt',names[i]);
+      lnk.setAttribute('href',mkUrl(cur,qs[i],'',names[i]));
+      lnk.appendChild(document.createTextNode(names[i]));
+      li.appendChild(lnk);
+      ul.appendChild(li);
+    }
+    bd.appendChild(ul);
+
+    d.appendChild(hd);
+    d.appendChild(bd);
+    hd.onclick=function(){
+      if(has(d,'open')){delCls(d,'open');}else{addCls(d,'open');}
+    };
+  });
+
+  /* ---------- 地图切换 ---------- */
+  var toggle=document.getElementById('maptoggle');
+  if(toggle){
+    toggle.onclick=function(e){
+      var t=(e&&(e.target||e.srcElement))||null;
+      while(t&&t.nodeName!=='BUTTON'){t=t.parentNode;}
+      if(!t||!t.getAttribute)return;
+      var m=t.getAttribute('data-map');
+      if(!m)return;
+      cur=m;
+      var bs=toggle.getElementsByTagName('button');
+      for(var i=0;i<bs.length;i++){bs[i].className=(bs[i]===t)?'on':'';}
+      each(places,function(p){p.setAttribute('href',urlOf(p));});
+      syncDmaps();
+    };
+  }
+
+  /* ---------- 手风琴 ---------- */
+  each(document.querySelectorAll('.card'),function(card){
+    var hd=card.querySelector('.hd[data-toggle]');
+    if(!hd)return;
+    hd.onclick=function(){
+      if(has(card,'open')){delCls(card,'open');}else{addCls(card,'open');}
+    };
+  });
+
+  /* ---------- 滚动高亮导航 ---------- */
+  var secIDs=['overview','penang','langkawi','kl','durian','singapore','f1','budget','places','todo'];
+  var navLinks={};
+  each(document.querySelectorAll('.nav a'),function(a){
+    var h=a.getAttribute('href')||'';
+    if(h.charAt(0)==='#')navLinks[h.substring(1)]=a;
+  });
+  var sections=[];
+  each(secIDs,function(id){
+    var el=document.getElementById(id);
+    if(el)sections.push(el);
+  });
+
+  var lastActive='';
+  function setActive(id){
+    if(id===lastActive)return;
+    lastActive=id;
+    for(var k in navLinks){
+      if(!navLinks.hasOwnProperty(k))continue;
+      if(k===id){addCls(navLinks[k],'active');}
+      else{delCls(navLinks[k],'active');}
+    }
+  }
+
+  var ticking=false;
+  function spy(){
+    if(ticking)return;
+    ticking=true;
+    setTimeout(function(){
+      ticking=false;
+      var y=(window.pageYOffset||document.documentElement.scrollTop||0)+90;
+      var id=sections.length?sections[0].id:'overview';
+      each(sections,function(s){if(s.offsetTop<=y)id=s.id;});
+      setActive(id);
+    },80);
+  }
+  if(window.addEventListener){
+    window.addEventListener('scroll',spy,false);
+  }else if(window.attachEvent){
+    window.attachEvent('onscroll',spy);
+  }
+  spy();
+
+  /* ---------- 默认展开每个城市的第一天 ---------- */
+  each(['penang-days','langkawi-days','kl-days','sg-days'],function(id){
+    var box=document.getElementById(id);
+    if(!box)return;
+    var c=box.querySelector('.card');
+    if(c)addCls(c,'open');
+  });
+
+  /* ---------- 回到顶部 ---------- */
+  var top=document.getElementById('totop');
+  if(top){
+    if(window.addEventListener){
+      window.addEventListener('scroll',function(){
+        var y=window.pageYOffset||document.documentElement.scrollTop||0;
+        if(y>600){addCls(top,'show');}else{delCls(top,'show');}
+      },false);
+    }
+    top.onclick=function(){
+      var smooth=false;
+      try{smooth=('scrollBehavior' in document.documentElement.style);}catch(e){}
+      if(smooth){window.scrollTo({top:0,behavior:'smooth'});}
+      else{window.scrollTo(0,0);}
+    };
+  }
+
+  /* ---------- 行前 To-Do 勾选 ---------- */
+  var TKEY='trip_todo_v1';
+  var saved={};
+  try{
+    var raw=window.localStorage?window.localStorage.getItem(TKEY):null;
+    if(raw){saved=JSON.parse(raw);}
+  }catch(e){saved={};}
+  if(!saved||typeof saved!=='object'){saved={};}
+
+  var todos=document.querySelectorAll('.todo-item');
+  function saveTodos(){
+    try{if(window.localStorage)window.localStorage.setItem(TKEY,JSON.stringify(saved));}catch(e){}
+  }
+  function updProg(){
+    var all=todos.length,done=0;
+    each(todos,function(t){if(has(t,'done'))done++;});
+    var pct=all?Math.round(done/all*100):0;
+    var bar=document.getElementById('tp-bar');
+    if(bar)bar.style.width=pct+'%';
+    var tx=document.getElementById('tp-txt');
+    if(tx)tx.innerHTML=done+' / '+all+' 已完成';
+  }
+  each(todos,function(it){
+    var id=it.getAttribute('data-id');
+    if(saved[id])addCls(it,'done');
+    it.onclick=function(){
+      if(has(it,'done')){delCls(it,'done');saved[id]=false;}
+      else{addCls(it,'done');saved[id]=true;}
+      saveTodos();updProg();
+    };
+  });
+  updProg();
+
+  var rb=document.getElementById('tp-reset');
+  if(rb){
+    rb.onclick=function(){
+      var ok=true;
+      try{ok=window.confirm('清空所有勾选？');}catch(e){ok=true;}
+      if(!ok)return;
+      saved={};saveTodos();
+      each(todos,function(t){delCls(t,'done');});
+      updProg();
+    };
+  }
+})();
+</script>
+</body>
+</html>
